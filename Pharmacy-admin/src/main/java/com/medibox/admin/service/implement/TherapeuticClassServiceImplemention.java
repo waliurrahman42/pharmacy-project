@@ -22,12 +22,9 @@ public class TherapeuticClassServiceImplemention  implements TherapeuticClassSer
 	}
 
 	@Override
-	public List<TherapeuticClass> listOfTherapeuticClass(TherapeuticClass tclass) {
-		if (tclass != null) {
-			//List<TherapeuticClass> tlist =therapeuticClassRepo.findAll();
+	public List<TherapeuticClass> listOfTherapeuticClass() {
+		
 			return therapeuticClassRepo.findAll();
-		}
-		return null;
 		
 	}
 

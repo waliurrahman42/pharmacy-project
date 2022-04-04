@@ -58,7 +58,8 @@
 
 
     <!-- *****************ACTIONS *****************-->
-    
+     
+     
     <section id="actions" class="py-4 mb-4 bg-light">
       <div class="container">
         <div class="row">
@@ -144,6 +145,7 @@
         </div>
       </div>
     </section>
+
 <hr>
      <!--*****************ADD chemical Class*****************  -->
     
@@ -183,6 +185,23 @@
       class="collapse container-fluid table-widthset"
       id="collapsechemicalclassList"
     >
+    
+	     <!-- SEARCH -->
+	  <section id="search" class="py-4 mb-4 bg-light">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-6 ml-auto">
+	          <div class="input-group">
+	            <input type="text" name="query" class="form-control" placeholder="Search chemical Class...">
+	            <div class="input-group-append">
+	              <button class="btn btn-warning">Search</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </section>
+    
       <div class="row container-fluid">
         <div class="card">
           <div class="card-header">
@@ -262,6 +281,24 @@
       class="collapse container-fluid table-widthset"
       id="collapseTherapeuticClassList"
     >
+    
+       <!-- SEARCH -->
+	  <section id="search" class="py-4 mb-4 bg-light">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-6 ml-auto">
+	          <div class="input-group">
+	            <input type="text" name="query" class="form-control" placeholder="Search Therapeutic Class...">
+	            <div class="input-group-append">
+	              <button class="btn btn-warning">Search</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </section>
+    
+    
       <div class="row container-fluid">
         <div class="card">
           <div class="card-header">
@@ -364,6 +401,25 @@
       class="collapse container-fluid table-widthset"
       id="collapseManufactureList"
     >
+    
+    
+     <!-- SEARCH -->
+	  <section id="search" class="py-4 mb-4 bg-light">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-6 ml-auto">
+	          <div class="input-group">
+	            <input type="text" name="querymanafacture" class="form-control" placeholder="Search Manafacture Class...">
+	            <div class="input-group-append">
+	              <button class="btn btn-warning">Search</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </section>
+	  
+	  
       <div class="row container-fluid">
         <div class="card">
           <div class="card-header">
@@ -704,9 +760,27 @@
 	    </div>
 
 	</c:if>
+
  <!--*****************Medicine inventery list table***************** -->
    
     <div class="container-fluid collapse" id="collapseMedicineinventery">
+     
+      <!-- SEARCH -->
+	  <section id="search" class="py-4 mb-4 bg-light">
+	    <div class="container">
+	      <div class="row">
+	        <div class="col-md-6 ml-auto">
+	          <div class="input-group">
+	            <input type="text" name="querymanafacture" class="form-control" placeholder="Search Medicine ...">
+	            <div class="input-group-append">
+	              <button class="btn btn-warning">Search</button>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </section>
+      
       <div class="row">
         <div class="card overflow-auto">
           <div class="card-header">

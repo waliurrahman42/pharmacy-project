@@ -1,5 +1,7 @@
 package com.medibox.admin.service.implement;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +17,7 @@ public class MedicineMasterImplementation implements MedicineMasterService{
 
 	@Override
 	public MedicineMaster saveMedicine(MedicineMaster med) {
-		// TODO Auto-generated method stub
+		
 		return medicineMasterRepro.save(med);
 	}
 
@@ -39,6 +41,12 @@ public class MedicineMasterImplementation implements MedicineMasterService{
 		if( med!=null) {
 		//	medicineMasterRepro.editMedicine(med);
 		}
+	}
+
+	@Override
+	public List<MedicineMaster> listOfMedicineMaster() {
+		
+		return	medicineMasterRepro.findAll();
 	}
 	
 	

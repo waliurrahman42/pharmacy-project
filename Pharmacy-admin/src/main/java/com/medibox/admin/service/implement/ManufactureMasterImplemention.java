@@ -1,5 +1,7 @@
 package com.medibox.admin.service.implement;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,6 +51,14 @@ public class ManufactureMasterImplemention implements ManufactureMasterService {
 		    return manufactureMasterRepo.findByManufactureId(manufactureId);
 		}
 		return null;
+	}
+
+
+
+	@Override
+	public List<ManufactureMaster> listOfManufactureMaster() {
+		
+		return manufactureMasterRepo.findAll();
 	}
 
 }

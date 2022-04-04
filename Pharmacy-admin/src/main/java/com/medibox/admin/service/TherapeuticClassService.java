@@ -9,7 +9,7 @@ public interface TherapeuticClassService {
 
 	TherapeuticClass addTherapeuticClass(TherapeuticClass tclass);
 	
-	List<TherapeuticClass> listOfTherapeuticClass(TherapeuticClass tclass);
+	List<TherapeuticClass> listOfTherapeuticClass();
 	
 	
 	
