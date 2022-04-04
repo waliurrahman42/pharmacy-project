@@ -2,14 +2,14 @@
     pageEncoding="ISO-8859-1"%>
     
     <%@page isELIgnored="false" %>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME</title>
+    <title>templett</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -30,20 +30,6 @@
 
  <body>
 
-<!-- FOOTER -->
-    <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p class="lead text-center">
-              Copyright &copy;
-              <span id="year"></span>
-              MediBox
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
 
 
 

@@ -50,13 +50,12 @@ public class MedicineMasterController {
 	@RequestMapping("/medicinemaster")
 	public String medicinemaster(Model m) {
 		System.out.println(" medicineMaster is executed");
-		//List<TherapeuticClass> tlist =therapeuticClassRepo.findAll();
-//		m.addAttribute("tclasslist", therapeuticClassRepo.findAll());
-//		m.addAttribute("manuflist", manufactureMasterRepo.findAll());
-//		m.addAttribute("chemlist", chemicalClassReprositoryRepo.findAll());
-//		m.addAttribute("medlist", medicineMasterRepro.findAll());
 		return "medicineMaster";
 	}
+	
+	
+	
+	///////////////////////////////////////////////////////////////////////////////////////
 	
 	//addtherapeuticclass in db
 	@PostMapping("/addtherapeuticclass")
@@ -71,17 +70,34 @@ public class MedicineMasterController {
 	public String findTherapeuticClass(@RequestParam("therapeuticClassId")Integer therapeuticClassId,Model m) {
 		System.out.println(" finding thepuritic by  id");
 		m.addAttribute("editTherapeuticClass", therapeuticClassImp.findByTherapeuticClassId(therapeuticClassId));
+		m.addAttribute("update",true);
 		return "medicineMaster";
 	}
+	
+	//update theroputic class 
+	@PostMapping("/edittherapeutic")
+	public String editTherapeuticClass(TherapeuticClass therapeuticClass,Model m) {
+		System.out.println(" finding thepuritic by  id");
+		if (therapeuticClass != null) {
+			therapeuticClassImp.editTherapeuticClass(therapeuticClass);
+			m.addAttribute("edit",true);
+		}
+			m.addAttribute("noedit",true);
+		return "medicineMaster";
+	}
+	
 	
 	//delete  thepuritic name
 	@GetMapping("/deletetherapeuticClass")
 	public String deleteTherapeuticClass(@RequestParam("therapeuticClassId")Integer therapeuticClassId,Model m) {
 		System.out.println(" delete chemicalName");
-		chemicalClassImp.deleteChemicalClass(chemicalClassImp.findByChemicalClassId(therapeuticClassId));
+		therapeuticClassImp.deleteTherapeuticClass(therapeuticClassImp.findByTherapeuticClassId(therapeuticClassId));
 		m.addAttribute("deleteMsg", "Deleted Therapeutic Class Name successfully!!!");
 		return "medicineMaster";
 	}
+	
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
 	
 	//adding manufacture class in db
@@ -98,6 +114,18 @@ public class MedicineMasterController {
 		public String findManufacture(@RequestParam("manufactureId")Integer manufactureId,Model m) {
 			System.out.println(" finding manufacture by  id");
 			m.addAttribute("editmanufactureList", manufactureMasterImp.findByManufactureId(manufactureId));
+			m.addAttribute("update",true);
+			return "medicineMaster";
+		}
+		
+		@PostMapping("/updatemanufacture")
+		public String updateManufacture(ManufactureMaster manufactureMaster,Model m) {
+			System.out.println(" update updatemanufacture");
+			if (manufactureMaster != null) {
+				manufactureMasterImp.editManufacture(manufactureMaster);
+				m.addAttribute("edit",true);
+			}
+				m.addAttribute("noedit",true);
 			return "medicineMaster";
 		}
 		
@@ -110,7 +138,7 @@ public class MedicineMasterController {
 			return "medicineMaster";
 		}
 	
-	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	//adding chemical class in db
 	@PostMapping("/addchemicalclass")
 	public String addChemicalClass(ChemicalClass chemicalClass) {
@@ -124,6 +152,19 @@ public class MedicineMasterController {
 	public String findChemicalClass(@RequestParam("chemicalId")Integer chemicalId,Model m) {
 		System.out.println(" editchemicalName");
 		m.addAttribute("editChemicalname", chemicalClassImp.findByChemicalClassId(chemicalId));
+		m.addAttribute("update",true);
+		return "medicineMaster";
+	}
+	
+	//update Chemical class
+	@PostMapping("/updateChemicalClass")
+	public String updateChemicalClass(ChemicalClass chemicalClass,Model m) {
+		System.out.println(" update Chemical Class");
+		if (chemicalClass != null) {
+			chemicalClassImp.editChemicalClass(chemicalClass);
+			m.addAttribute("edit",true);
+		}
+			m.addAttribute("noedit",true);
 		return "medicineMaster";
 	}
 	
@@ -135,13 +176,19 @@ public class MedicineMasterController {
 		m.addAttribute("deleteMsg", "Deleted chemical Name successfully!!!");
 		return "medicineMaster";
 	}
+
+	
+	
+	
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
 	
 	//medicine add form opening
 	@RequestMapping("/collapseADDMedicineData")
 	public String addMedicineform(Model m) {
 		System.out.println(" add medicine form is executed");
 		m.addAttribute("manuf", manufactureMasterImp.listOfManufactureMaster());
-		m.addAttribute("chemlist", chemicalClassImp.listOfChemicalClass());
+		m.addAttribute("chemlist2", chemicalClassImp.listOfChemicalClass());
 		m.addAttribute("therclass", therapeuticClassImp.listOfTherapeuticClass());
 		return "medicineMaster";
 	}
@@ -159,10 +206,28 @@ public class MedicineMasterController {
 		public String findMedicine(@RequestParam("medicineId")Integer medicineId,Model m) {
 			System.out.println(" finding medicine by  id");
 			m.addAttribute("editmedicine", medicineMasterImp.findByMedicineId(medicineId));
+			m.addAttribute("editform", true);
+			m.addAttribute("update",true);
 			return "medicineMaster";
 		}
 			
-			//delete  manufacture name
+		//update Medicine  
+		@PostMapping("/updatemedicine")
+		public String updateMedicine(MedicineMaster medi,Model m) {
+			System.out.println(" edit Medicine");
+			if (medi != null) {
+				medicineMasterImp.editMedicine(medi);
+				m.addAttribute("edit",true);
+			}
+				m.addAttribute("noedit",true);
+			return "medicineMaster";
+		}
+		
+		
+		
+		
+		
+	//delete Medicine  name
 		@GetMapping("/deletemedicine")
 		public String deleteMedicine(@RequestParam("medicineId")Integer medicineId,Model m) {
 			System.out.println(" delete manufacture");

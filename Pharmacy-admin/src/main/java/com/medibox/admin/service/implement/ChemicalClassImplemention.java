@@ -41,7 +41,7 @@ public class ChemicalClassImplemention implements ChemicalClassService {
 	@Override
 	public void editChemicalClass(ChemicalClass cClass) {
 		if( cClass!=null) {
-	//		    chemicalClassReprositoryRepo.editContact(cClass);
+			 chemicalClassReprositoryRepo.save(cClass);
 		}
 		
 	}

@@ -52,7 +52,7 @@
 			  <strong>${deleteMsg}</strong>
 			</div>
 		</c:if>
-
+		
 
 
 
@@ -146,13 +146,22 @@
       </div>
     </section>
 
-<hr>
+
      <!--*****************ADD chemical Class*****************  -->
     
     <div class='<c:if test="${editChemicalname == null }">collapse</c:if>' id="collapseAddchemicalClass">
       <hr />
-      <form action="addchemicalclass"  method="post">
+      <form  <c:if test="${update}"> action="updateChemicalClass" </c:if> <c:if test="${!update}" > action="addchemicalclass" </c:if>  method="post">
         <legend>Chemical Class Form</legend>
+        
+        <c:if test="${update}">
+		 <input
+            type="hidden"
+            name="chemicalId"
+            value="${editChemicalname.chemicalId }"
+          />
+		</c:if>
+        
         <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span
@@ -171,14 +180,14 @@
           />
         </div>
         <div id="button-med-reg" class="mt-3">
-          <input type="reset" class="btn-danger btn-lg" value="Reset" />
-          <input class="btn-success btn-lg" type="submit" value="Submit" />
+        <c:if test="${!update}">   <input type="reset" class="btn-danger btn-lg" value="Reset" /></c:if>
+          <input class="btn-success btn-lg" type="submit" <c:if test="${update}"> value="Update" </c:if> <c:if test="${!update}" > value="Submit" </c:if> />
         </div>
       </form>
     </div>
    
    
-   <hr>
+   
     <!-- *****************chemical class list ***************** -->
     
     <div
@@ -229,13 +238,22 @@
         </div>
       </div>
     </div>
-<hr>
+
  <!--**************ADD Therapeutic Class ***************** -->
     
     <div class="<c:if test="${editTherapeuticClass == null }">collapse</c:if> container-fluid py-4" id="collapseAddtheraputicClass">
-      <form method="post" action="addtherapeuticclass" >
+      
+      <form method="post" <c:if test="${update}"> action="edittherapeutic" </c:if> <c:if test="${!update}" > action="addtherapeuticclass" </c:if> >
         <legend>Therapeutic class Registartion</legend>
-
+		
+		<c:if test="${update}">
+		 <input
+            type="hidden"
+            name="therapeuticClassId"
+            value="${editTherapeuticClass.therapeuticClassId }"
+          />
+		</c:if>
+		
         <div class="input-group input-group-sm">
           <div class="input-group-prepend">
             <span
@@ -268,13 +286,13 @@
         </div>
 
         <div id="button-med-reg" class="">
-          <input type="reset" class="btn-danger btn-lg" value="Reset" />
-          <input type="submit" class="btn-success btn-lg"  value="Submit" />
+         <c:if test="${!update}">   <input type="reset" class="btn-danger btn-lg" value="Reset" /></c:if>
+          <input type="submit" class="btn-success btn-lg"  <c:if test="${update}"> value="Update" </c:if> <c:if test="${!update}" > value="Submit" </c:if> />
         </div>
       </form>
     </div>
     
-<hr>
+
     <!--***************** Therapeutic Class list *****************-->
    
     <div
@@ -341,15 +359,22 @@
     <!--*****************************************************************************************************************  -->
     
     
-<hr>
+
     <!--*****************ADD Manufacture*****************  -->
    
     <div class="<c:if test="${editmanufactureList == null }">collapse</c:if> container-fluid py-4" id="collapseAddManufacture">
       <hr />
-      <form action="addmanufacture" method="post" >
+      <form <c:if test="${update}"> action="updatemanufacture" </c:if> <c:if test="${!update}" > action="addmanufacture" </c:if> method="post" >
         <legend>Manufacture Registration</legend>
 
-        <div>
+        <c:if test="${update}">
+		 <input
+            type="hidden"
+            name="manufactureId"
+            value="${editmanufactureList.manufactureId }"
+          />
+		</c:if>
+		
           <div class="input-group input-group-sm">
             <div class="input-group-prepend">
               <span
@@ -387,14 +412,14 @@
             />
           </div>
           
-        </div>
+        
         <div id="button-med-reg" class="">
-          <input type="reset" class="btn-danger btn-lg" value="Reset" />
-          <input class="btn-success btn-lg" type="submit" value="Submit" />
+          <c:if test="${!update}">   <input type="reset" class="btn-danger btn-lg" value="Reset" /></c:if>
+          <input class="btn-success btn-lg" type="submit" <c:if test="${update}"> value="Update" </c:if> <c:if test="${!update}" > value="Submit" </c:if> />
         </div>
       </form>
     </div>
-<hr>
+
  <!-- *****************manafacture list***************** -->
     
     <div
@@ -456,17 +481,28 @@
   
 
 
-<hr>
+
   <!--*****************ADD medicine data***************** -->
      
      
-     <c:if test="${(manuf != null) || (editmedicine != null) }">
+     <c:if test="${(manuf != null) || (editform) }">
      
      
      
 	    <div class=" container-fluid py-4" id="collapseADDMedicineData">
-	      <form id="medicineRegisterpage" action="addmedicine" method="post">
+	      <form id="medicineRegisterpage" <c:if test="${update}"> action="updatemedicine" </c:if> <c:if test="${!update}" > action="addmedicine" </c:if> method="post">
 	        <legend>Medicine Add</legend>
+	        
+	        <c:if test="${update}">
+				 <input
+		            type="hidden"
+		            name="medicineId"
+		            value="${editmedicine.medicineId }"
+		          />
+			</c:if>
+	        
+	        
+	        
 	        <div class="input-group input-group-sm">
 	          <div class="input-group-prepend">
 	            <span
@@ -533,9 +569,9 @@
 	            >
 	          </div>
 	          <select name="manufacture" id="Manufacture">
-	          		
+	          	<c:if test="${editform}"><option value="${editmedicine.manufacture.manufactureId}">${editmedicine.manufacture.manufactureName}</option></c:if>
 	            <c:forEach var="manlist" items="${manuf }" >
-	            	<option value="${manlist.manufactureId}">${manlist.manufactureName } ${editmedicine.manufacture}</option>
+	            	<option value="${manlist.manufactureId}">${manlist.manufactureName } </option>
 	           	</c:forEach>
 	          </select>
 	        </div>
@@ -660,9 +696,9 @@
 	            >
 	          </div>
 	          <select name="chemicalClass" id="chemicalClassName">
-	            
-	            <c:forEach var="chemlist" items="${chemlist }" >
-	            	<option value="${chemlist.chemicalId }">${chemlist.chemicalName }${editmedicine.chemicalClass}</option>
+	            	<c:if test="${editform}"><option value="${editmedicine.chemicalClass.chemicalId}">${editmedicine.chemicalClass.chemicalName}</option></c:if>
+	            <c:forEach var="chelist" items="${chemlist2}" >
+	            	<option value="${chelist.chemicalId }">${chelist.chemicalName}</option>
 	           	</c:forEach>
 	          </select>
 	        </div>
@@ -695,7 +731,7 @@
 	          </div>
 	
 	          <select name="therapeuticClass" id="Therapeutic">
-	           		<option value="${editmedicine.therapeuticClass}">${editmedicine.therapeuticClass}</option>
+	           		<c:if test="${editform}"><option value="${editmedicine.therapeuticClass.therapeuticClassId}">${editmedicine.therapeuticClass.tName}</option></c:if>
 	            <c:forEach var="therlist" items="${therclass }" >
 	            	<option value="${therlist.therapeuticClassId }">${therlist.tName }${editmedicine.therapeuticClass}</option>
 	           	</c:forEach>
@@ -753,14 +789,16 @@
 	        </div>
 	
 	        <div id="button-med-reg" class="">
-	          <input type="reset" class="btn-danger btn-lg" value="Reset" />
-	          <input class="btn-success btn-lg" type="submit" value="Submit" />
+	      		 <c:if test="${!update}">   <input type="reset" class="btn-danger btn-lg" value="Reset" /></c:if>
+	          <input class="btn-success btn-lg" type="submit" <c:if test="${update}"> value="Update" </c:if> <c:if test="${!update}" > value="Submit" </c:if>    />
 	        </div>
 	      </form>
 	    </div>
 
 	</c:if>
 
+ 
+ 
  <!--*****************Medicine inventery list table***************** -->
    
     <div class="container-fluid collapse" id="collapseMedicineinventery">
@@ -769,7 +807,7 @@
 	  <section id="search" class="py-4 mb-4 bg-light">
 	    <div class="container">
 	      <div class="row">
-	        <div class="col-md-6 ml-auto">
+	        <div class="col m-auto">
 	          <div class="input-group">
 	            <input type="text" name="querymanafacture" class="form-control" placeholder="Search Medicine ...">
 	            <div class="input-group-append">
@@ -815,16 +853,16 @@
 	                <td>${medList.medicineName}</td>
 	                <td>${medList.prescription }</td>
 	                <td>${medList.typeOfSell }</td>
-	                <td>${medList.manufacture }</td>
+	                <td>${medList.manufacture.manufactureName }</td>
 	                <td>${medList.salt }</td>
 	                <td>${medList.mrp }</td>
 	                <td>${medList.uses }</td>
 	                <td>${medList.alternateMedicines }</td>
 	                <td>${medList.sideEffects }</td>
 	                <td>${medList.howToUse }</td>
-	                <td>${medList.chemicalClass }</td>
+	                <td>${medList.chemicalClass.chemicalName }</td>
 	                <td>${medList.habitForming }</td>
-	                <td>${medList.therapeuticClass }</td>
+	                <td>${medList.therapeuticClass.tName }</td>
 	                <td>${medList.actionClass }</td>
 	                <td>${medList.medicineUrl1 }</td>
 	                <td>${medList.medicineUrl2 }</td>

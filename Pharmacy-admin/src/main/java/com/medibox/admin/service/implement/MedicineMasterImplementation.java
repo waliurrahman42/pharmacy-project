@@ -39,7 +39,7 @@ public class MedicineMasterImplementation implements MedicineMasterService{
 	@Override
 	public void editMedicine(MedicineMaster med) {
 		if( med!=null) {
-		//	medicineMasterRepro.editMedicine(med);
+			medicineMasterRepro.save(med);
 		}
 	}
 

@@ -46,7 +46,7 @@ public class TherapeuticClassServiceImplemention  implements TherapeuticClassSer
 	@Override
 	public void editTherapeuticClass(TherapeuticClass tclass) {
 		if( tclass!=null) {
-		  //   therapeuticClassRepo.editTherapeuticClass(tclass);
+		  therapeuticClassRepo.save(tclass);
 		}
 	}
 	

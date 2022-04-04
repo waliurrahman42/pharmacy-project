@@ -39,7 +39,7 @@ public class ManufactureMasterImplemention implements ManufactureMasterService {
 	@Override
 	public void editManufacture(ManufactureMaster manufMaster) {
 		if(  manufMaster!=null) {
-			//manufactureMasterRepo.editManufacture(manufMaster);
+			manufactureMasterRepo.save(manufMaster);
 		}
 	}
 
@@ -54,6 +54,8 @@ public class ManufactureMasterImplemention implements ManufactureMasterService {
 	}
 
 
+	
+	
 
 	@Override
 	public List<ManufactureMaster> listOfManufactureMaster() {
