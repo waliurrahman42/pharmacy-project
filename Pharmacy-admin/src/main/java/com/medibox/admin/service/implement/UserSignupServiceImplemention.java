@@ -24,7 +24,6 @@ public class UserSignupServiceImplemention implements UserSignupService  {
 
 	@Override
 	public List<UserSignup> listOfUser() {
-		
 		return userSignuprepository.findAll();
 	}
 

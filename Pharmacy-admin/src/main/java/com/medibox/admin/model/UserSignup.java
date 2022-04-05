@@ -28,44 +28,90 @@ public class UserSignup {
 	@Column(nullable = false)
 	private String Password;
 
+	
+	public UserSignup() {
+		
+	}
+	
 	public int getUserId() {
 		return UserId;
 	}
+
 
 	public void setUserId(int userId) {
 		UserId = userId;
 	}
 
+
+
 	public String getFullName() {
 		return FullName;
 	}
+
+
 
 	public void setFullName(String fullName) {
 		FullName = fullName;
 	}
 
+
+
+
+
 	public String getEmailId() {
 		return EmailId;
 	}
+
+
+
+
+
 
 	public void setEmailId(String emailId) {
 		EmailId = emailId;
 	}
 
+
+
+
+
 	public String getContactNumber() {
 		return ContactNumber;
 	}
+
+
+
+
+
 
 	public void setContactNumber(String contactNumber) {
 		ContactNumber = contactNumber;
 	}
 
+
+
+
 	public String getPassword() {
 		return Password;
 	}
+
+
+
 
 	public void setPassword(String password) {
 		Password = password;
 	}
 
+
+
+
+
+	@Override
+	public String toString() {
+		return "UserSignup [UserId=" + UserId + ", FullName=" + FullName + ", EmailId=" + EmailId + ", ContactNumber="
+				+ ContactNumber + ", Password=" + Password + "]";
+	}
+
+	
+	
 }

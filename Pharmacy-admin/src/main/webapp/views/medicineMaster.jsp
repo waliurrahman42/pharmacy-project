@@ -31,7 +31,7 @@
 
 <body>
 
- <%@include file="header.jsp" %>
+ <%@include file="templates/header.jsp" %>
 
 
 <!-- HEADER -->
@@ -879,7 +879,7 @@
 
 
 
- <%@include file="footer.jsp" %>
+  <%@include file="templates/footer.jsp" %>
 
 
 

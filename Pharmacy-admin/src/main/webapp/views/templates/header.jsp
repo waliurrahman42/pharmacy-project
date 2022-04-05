@@ -52,7 +52,7 @@
               <a href="/medicinemaster" class="nav-link">MedicineMaster</a>
             </li>
             <li class="nav-item px-2">
-              <a href="/users" class="nav-link">Users</a>
+              <a href="/Users" class="nav-link">Users</a>
             </li>
           </ul>
 
