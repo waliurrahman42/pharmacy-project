@@ -17,7 +17,7 @@ public class MedicineMaster {
 	@Column
 	private int prescription;
 
-	@Column(nullable = false  )
+	@Column(nullable = false)
 	private String typeOfSell;
 
 

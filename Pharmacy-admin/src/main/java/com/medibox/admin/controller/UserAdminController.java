@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.medibox.admin.model.UserSignup;
-import com.medibox.admin.service.UserSignupService;
+import com.medibox.admin.model.User;
+import com.medibox.admin.service.UserService;
+import com.medibox.admin.service.implement.UserServiceImplemention;
 
 
 
@@ -17,11 +20,14 @@ import com.medibox.admin.service.UserSignupService;
 public class UserAdminController {
 	
 	@Autowired
-	private UserSignupService userSingnup;
+	private UserService userService;
+	
+	
+	
 	
 	@RequestMapping("/Users")
 	public String Users(Model m) {
-		List<UserSignup>	users=userSingnup.listOfUser();
+		List<User>	users=userService.listOfUser();
 		//m.addAttribute("userfind", userSingnup.findByUserId(1));
 		m.addAttribute("Userlist", users);
 		System.out.println(users);
@@ -31,13 +37,18 @@ public class UserAdminController {
 	
 	@RequestMapping("/UserDetails")
 	public String UserDetails(Model m) {
-		List<UserSignup>	users=userSingnup.listOfUser();
+		List<User>	users=userService.listOfUser();
 		
 		m.addAttribute("Userlist", users);
 		System.out.println(users);
 		return "UserDetails";
 	}
 
+	@PostMapping("/UserDetails/{uid}")
+	public String UserDetails(@PathVariable("uid")Integer uid,Model m) {
+		m.addAttribute("currentuser", userService.findByUserId(uid));
+		return "UserDetails";
+	}
 	
 	
 }

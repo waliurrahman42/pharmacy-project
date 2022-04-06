@@ -24,8 +24,8 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/mystyleadmin.css" />
-    <script src="js/myjScriptadmin.js"></script>
+    <link rel="stylesheet" href="/css/mystyleadmin.css" />
+    <script src="/js/myjScriptadmin.js"></script>
   </head>
 
  <body>
@@ -34,6 +34,10 @@
 
 
 
+
+
+
+ <!--+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
     <!-- Profile Page -->
@@ -45,11 +49,11 @@
                         <div class="account-settings">
                             <div class="user-profile">
                                 <div class="user-avatar">
-                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="naiyer Iqbal">
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="@profiepic">
                                 </div>
-                                <h5 class="user-name">Naiyer Iqbal</h5>
-                                <h6 class="user-email">naiyeriqbal678@gmail.com</h6>
-                                <h6 class="user-contactno">+91-9876543210</h6>
+                                <h5 class="user-name">${currentuser.fullName}</h5>
+                                <h6 class="user-email">${currentuser.emailId}</h6>
+                                <h6 class="user-contactno">${currentuser.contactNumber}</h6>
                             </div>
                             <hr>
                             <div class="manage-address">
@@ -76,20 +80,20 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Full Name"
+                                    <input type="text" value="${currentuser.fullName}" class="form-control" id="fullName" placeholder="Full Name"
                                         disabled>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Email-Id</label>
-                                    <input type="email" class="form-control" id="eMail" placeholder="Email ID" disabled>
+                                    <input type="email" value="${currentuser.emailId}"   class="form-control" id="eMail" placeholder="Email ID" disabled>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="text" class="form-control" id="phone" placeholder="Contact Number"
+                                    <input type="text"  value="${currentuser.contactNumber}"  class="form-control" id="phone" placeholder="Contact Number"
                                         disabled>
                                 </div>
                             </div>
@@ -147,34 +151,38 @@
                                 <button class="save-address-btn btn btn-primary">Save</button>
                             </div>
                         </div>
-
-                        <div class="user-address-section mt-3 ml-3 mb-3 mr-3 p-3">
-                            <div class="left">
-                                <span class="username">User Name1</span> &nbsp;
-                                <span class="usercontactno">+91-9876543210</span>
-                                <br>
-                                <span class="useraddress">Area/Street/Locality</span>
-                                <br>
-                                <span class="usercity">City</span>,
-                                <span class="userstate">State</span> -
-                                <span class="userpincode">Pincode</span> &nbsp;
-                            </div>
-                            <div class="right mr-5">
-                                <button class="edit-address">
-                                    <i class='fas fa-pencil-alt'></i>&nbsp;
-                                </button>
-                                <button class="delete-address">
-                                    <i class="fas fa-trash-alt"></i>
-                                </button>
-                            </div>
-                        </div>
+							<c:forEach var="address" items="${currentuser.userAddresses }">
+                        		<div class="user-address-section mt-3 ml-3 mb-3 mr-3 p-3">
+                          	
+		                            <div class="left">
+		                                <span class="username">${address.name}</span> &nbsp;
+		                                <span class="usercontactno">${address.mobileNumber}</span>
+		                                <br>
+		                                <span class="useraddress">${address.locality}, ${address.landmark}</span>
+		                                <br>
+		                                <br>
+		                                <span class="userlandmark">${address.landmark}</span>
+		                                <br>
+		                                <span class="usercity">${address.city}</span>,
+		                                <span class="userstate">${address.state}</span> -
+		                                <span class="userpincode">${address.pincode}</span> &nbsp;
+		                            </div>
+		                            <div class="right mr-5">
+		                                <button class="edit-address">
+		                                    <i class='fas fa-pencil-alt'></i>&nbsp;
+		                                </button>
+		                                <button class="delete-address">
+		                                    <i class="fas fa-trash-alt"></i>
+		                                </button>
+		                            </div>
+                            
+                        	</div>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
 
 
 

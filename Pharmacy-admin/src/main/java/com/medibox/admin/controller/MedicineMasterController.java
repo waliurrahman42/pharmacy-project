@@ -201,7 +201,7 @@ public class MedicineMasterController {
 		return "medicineMaster";
 	}
 	
-	// finding manufacture by  id
+	    // finding manufacture by  id
 		@GetMapping("/editmedicine")
 		public String findMedicine(@RequestParam("medicineId")Integer medicineId,Model m) {
 			System.out.println(" finding medicine by  id");
@@ -222,10 +222,6 @@ public class MedicineMasterController {
 				m.addAttribute("noedit",true);
 			return "medicineMaster";
 		}
-		
-		
-		
-		
 		
 	//delete Medicine  name
 		@GetMapping("/deletemedicine")

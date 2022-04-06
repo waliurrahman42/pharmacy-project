@@ -24,8 +24,8 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/mystyleadmin.css" />
-    <script src="js/myjScriptadmin.js"></script>
+    <link rel="stylesheet" href="/css/mystyleadmin.css" />
+    <script src="/js/myjScriptadmin.js"></script>
   </head>
 
  <body>

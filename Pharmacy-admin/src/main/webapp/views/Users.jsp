@@ -91,9 +91,11 @@
 	                  <td>${user.getFullName()}</td>
 	                  <td>${user.getEmailId()}</td>
 	                  <td>
-	                    <a href="/UserDetails" class="btn btn-secondary">
-	                      <i class="fas fa-angle-double-right"></i> Details
-	                    </a>
+	                     <form action="UserDetails/${user.getUserId()}" method="post">
+		                    <button type="submit" class="btn btn-secondary">
+		                      <i class="fas fa-angle-double-right"></i> Details
+		                    </button>
+	                     </form>   
 	                  </td>
 	                </tr>
                </c:forEach>
