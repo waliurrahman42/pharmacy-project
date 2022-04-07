@@ -19,5 +19,5 @@ public interface UserService {
 	void editUser(User user);
 	
 	
-	
+	int countUser();
 }

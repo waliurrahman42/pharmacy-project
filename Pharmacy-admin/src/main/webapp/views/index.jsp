@@ -11,8 +11,21 @@
 </head>
 <body>
 
+
+
+
+
+
+
+
+
+
  <%@include file="templates/header.jsp" %>
  
+	
+	
+	
+	
 	
 	<!-- HEADER -->
     <header id="main-header" class="py-2 bg-primary text-white">
@@ -68,39 +81,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>dwa</td>
-                    <td>800014</td>
-                    <td>0</td>
-                    <td>
-                      <a href="details.jsp" class="btn btn-secondary">
-                        <i class="fas fa-angle-double-right"></i> Details
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>dwa</td>
-                    <td>800014</td>
-                    <td>0</td>
-                    <td>
-                      <a href="details.jsp" class="btn btn-secondary">
-                        <i class="fas fa-angle-double-right"></i> Details
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>dwa</td>
-                    <td>800014</td>
-                    <td>0</td>
-                    <td>
-                      <a href="details.jsp" class="btn btn-secondary">
-                        <i class="fas fa-angle-double-right"></i> Details
-                      </a>
-                    </td>
-                  </tr>
+                <c:forEach var="item" items="${pendingSeller}">
+	                  <tr>
+	                    <td>${item.sellerId}</td> 
+	                    <td>${item.shopName}</td>
+	                    <td>${item.shopPincode}</td>
+	                    <td><c:if test="${item.status == 0}">On Hold</c:if>  <c:if test="${item.status == 1}">Active</c:if>               </td>
+	                    <td>
+	                       <a href="/sellerDetailsFind?sid=${item.sellerId}" class="btn btn-secondary">
+	                        <i class="fas fa-angle-double-right"></i> Details
+	                      </a> 
+	                    </td>
+	                  </tr>
+                  </c:forEach>
+                
                 </tbody>
               </table>
             </div>
@@ -109,8 +103,8 @@
             <div class="card text-center bg-primary text-white mb-3">
               <div class="card-body">
                 <h3>Seller</h3>
-                <h4 class="display-4"><i class="fas fa-pencil-alt"></i> 6</h4>
-                <a href="posts.html" class="btn btn-outline-light btn-sm"
+                <h4 class="display-4"><i class="fas fa-pencil-alt"></i>${sellerCount}</h4>
+                <a href="/seller" class="btn btn-outline-light btn-sm"
                   >View</a
                 >
               </div>
@@ -129,8 +123,8 @@
             <div class="card text-center bg-warning text-white mb-3">
               <div class="card-body">
                 <h3>Users</h3>
-                <h4 class="display-4"><i class="fas fa-users"></i> 4</h4>
-                <a href="users.html" class="btn btn-outline-light btn-sm"
+                <h4 class="display-4"><i class="fas fa-users"></i> ${userCount}</h4>
+                <a href="/Users" class="btn btn-outline-light btn-sm"
                   >View</a
                 >
               </div>

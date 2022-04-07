@@ -9,7 +9,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>templett</title>
+    <title>Admin-Seller-Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -24,8 +24,8 @@
       integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/mystyleadmin.css" />
-    <script src="js/myjScriptadmin.js"></script>
+    <link rel="stylesheet" href="/css/mystyleadmin.css" />
+    <script src="/js/myjScriptadmin.js"></script>
   </head>
 
  <body>
@@ -34,15 +34,13 @@
 
 
 
-
-
 <!-- HEADER -->
-<header id="main-header" class="py-2 bg-warning text-white">
+<header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h1>
-            <i class="fas fa-users"></i> Users</h1>
+            <i class="fas fa-users"></i> Sellers</h1>
         </div>
       </div>
     </div>
@@ -56,7 +54,7 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search Users...">
             <div class="input-group-append">
-              <button class="btn btn-warning">Search</button>
+              <button class="btn btn-primary">Search</button>
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@
   </section>
 
   <!-- USERS -->
-  <c:if test="${Userlist != null}">
+  <c:if test="${Sellerlist != null}">
   
   <section id="users">
     <div class="container">
@@ -73,30 +71,32 @@
         <div class="col">
           <div class="card">
             <div class="card-header">
-              <h4>Latest Users</h4>
+              <h4>Latest Sellers</h4>
             </div>
             <table class="table table-striped">
               <thead class="thead-dark">
                 <tr>
-                  <th>UserID</th>
-                  <th>Name</th>
-                  <th>Email</th>
+                  <th>sellerId</th>
+                  <th>shopName</th>
+                  <th>status</th>
+                  <th>shopName</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
-              	<c:forEach var="user" items="${Userlist}">
+              	<c:forEach var="seller" items="${Sellerlist}">
 	                <tr>
-	                  <td>${user.getUserId()}</td> 
-	                  <td>${user.getFullName()}</td>
-	                  <td>${user.getEmailId()}</td>
+	                  <td>${seller.sellerId}</td> 
+	                  <td>${seller.shopName}</td>
+	                  <td>${seller.status}</td>
+	                   <td>${seller.shopName}</td>
 	                  <td>
 	                     <%-- <form action="UserDetails/${user.getUserId()}" method="post">
 		                    <button type="submit" class="btn btn-secondary">
 		                      <i class="fas fa-angle-double-right"></i> Details
 		                    </button>
 	                     </form>    --%>
-	                     <a class="btn btn-secondary " href="/UserDetailsFind?uid=${user.getUserId()}"><i class="fas fa-angle-double-right"></i> Details</a>
+	                     <a class="btn btn-secondary " href="/sellerDetailsFind?sid=${seller.sellerId}"><i class="fas fa-angle-double-right"></i> Details</a>
 	                  </td>
 	                </tr>
                </c:forEach>
@@ -108,23 +108,6 @@
     </div>
   </section>
 </c:if>
-
- 
-
-${userfind.getUserId()}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

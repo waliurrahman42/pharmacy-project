@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.medibox.admin.dao.ChemicalClassReprository;
 import com.medibox.admin.model.ChemicalClass;
+import com.medibox.admin.reprository.ChemicalClassReprository;
 import com.medibox.admin.service.ChemicalClassService;
 
 @Service

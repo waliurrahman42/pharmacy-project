@@ -46,7 +46,7 @@
               <a href="/index" class="nav-link active">Dashboard</a>
             </li>
             <li class="nav-item px-2">
-              <a href="seller" class="nav-link">Seller</a>
+              <a href="/seller" class="nav-link">Seller</a>
             </li>
             <li class="nav-item px-2">
               <a href="/medicinemaster" class="nav-link">MedicineMaster</a>

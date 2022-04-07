@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.medibox.admin.dao.TherapeuticClassReprository;
 import com.medibox.admin.model.ChemicalClass;
 import com.medibox.admin.model.ManufactureMaster;
 import com.medibox.admin.model.MedicineMaster;
 import com.medibox.admin.model.TherapeuticClass;
+import com.medibox.admin.reprository.TherapeuticClassReprository;
 import com.medibox.admin.service.implement.ChemicalClassImplemention;
 import com.medibox.admin.service.implement.ManufactureMasterImplemention;
 import com.medibox.admin.service.implement.MedicineMasterImplementation;

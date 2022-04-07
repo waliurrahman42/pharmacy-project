@@ -23,10 +23,9 @@ public class UserAddress {
 		@Column(nullable = false)
 		private String mobileNumber;
 		
-		@Column(nullable = false)
-		private String locality;
+		@Column( length = 1000)
+		private String localityAreaStreet;
 		
-		private String areaStreet;
 		
 		private String landmark;
 		
@@ -38,81 +37,82 @@ public class UserAddress {
 		
 		@Column(nullable = false , length = 6)
 		private int pincode;
-		
-		
-		
+
 		public int getUserAddressId() {
 			return userAddressId;
 		}
+
 		public void setUserAddressId(int userAddressId) {
 			this.userAddressId = userAddressId;
 		}
-		
-		
-		
-	
+
 		public String getName() {
 			return name;
 		}
+
 		public void setName(String name) {
 			this.name = name;
 		}
+
 		public User getUser() {
 			return user;
 		}
+
 		public void setUser(User user) {
 			this.user = user;
 		}
+
 		public String getMobileNumber() {
 			return mobileNumber;
 		}
+
 		public void setMobileNumber(String mobileNumber) {
 			this.mobileNumber = mobileNumber;
 		}
-		public String getLocality() {
-			return locality;
+
+		public String getLocalityAreaStreet() {
+			return localityAreaStreet;
 		}
-		public void setLocality(String locality) {
-			this.locality = locality;
+
+		public void setLocalityAreaStreet(String localityAreaStreet) {
+			this.localityAreaStreet = localityAreaStreet;
 		}
-		public String getAreaStreet() {
-			return areaStreet;
-		}
-		public void setAreaStreet(String areaStreet) {
-			this.areaStreet = areaStreet;
-		}
+
 		public String getLandmark() {
 			return landmark;
 		}
+
 		public void setLandmark(String landmark) {
 			this.landmark = landmark;
 		}
+
 		public String getCity() {
 			return city;
 		}
+
 		public void setCity(String city) {
 			this.city = city;
 		}
+
 		public String getState() {
 			return state;
 		}
+
 		public void setState(String state) {
 			this.state = state;
 		}
+
 		public int getPincode() {
 			return pincode;
 		}
+
 		public void setPincode(int pincode) {
 			this.pincode = pincode;
 		}
 		
 		
-		@Override
-		public String toString() {
-			return "UserAddress [userAddressId=" + userAddressId + ", userId=" + user + ", mobileNumber="
-					+ mobileNumber + ", locality=" + locality + ", areaStreet=" + areaStreet + ", landmark=" + landmark
-					+ ", city=" + city + ", state=" + state + ", pincode=" + pincode + "]";
-		}
+		
+
 		
 		
 

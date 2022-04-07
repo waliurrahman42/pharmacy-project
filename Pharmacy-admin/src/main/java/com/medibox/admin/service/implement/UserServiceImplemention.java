@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.medibox.admin.dao.UserRepository;
 import com.medibox.admin.model.User;
+import com.medibox.admin.reprository.UserRepository;
 import com.medibox.admin.service.UserService;
 
 @Service
@@ -22,17 +22,20 @@ public class UserServiceImplemention implements UserService  {
 		return null;
 	}
 
+	
+	
 	@Override
 	public List<User> listOfUser() {
 		return userRepository.findAll();
 	}
 
+	
 	@Override
 	public User findByUserId(Integer UserId) {
-		//if(  UserId!=null) {
-			return userRepository.findByUserId(UserId);
-		//}
-		//return null;
+		if(  UserId!=null) {
+			return userRepository.findBySellerId(UserId);
+		}
+		return null;
 	}
 
 	@Override
@@ -47,6 +50,12 @@ public class UserServiceImplemention implements UserService  {
 			userRepository.save(user);
 		}
 		
+	}
+
+	@Override
+	public int countUser() {
+		
+		return userRepository.sellerCount();
 	}
 
 }

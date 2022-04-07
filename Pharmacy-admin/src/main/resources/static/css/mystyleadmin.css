@@ -70,7 +70,7 @@ input[type=number] {
 }
 
 .manage-address button {
-    background-color: inherit;
+  /*  background-color: inherit; */
     border: none;
     font-weight: 500;
     color: darkblue;
@@ -126,7 +126,7 @@ input[type=number] {
 }
 
 .add-address button {
-    background-color: inherit;
+  /*   background-color: inherit; */
     border: none;
     text-transform: uppercase;
     font-weight: bold;
