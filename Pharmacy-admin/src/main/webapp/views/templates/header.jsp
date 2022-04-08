@@ -69,13 +69,13 @@
                 <a href="profile.jsp" class="dropdown-item">
                   <i class="fas fa-user-circle"></i> Profile
                 </a>
-                <a href="settings.jsp" class="dropdown-item">
+                <a href="/settings" class="dropdown-item">
                   <i class="fas fa-cog"></i> Settings
                 </a>
               </div>
             </li>
             <li class="nav-item">
-              <a href="login.jsp" class="nav-link">
+              <a href="/login" class="nav-link">
                 <i class="fas fa-user-times"></i> Logout
               </a>
             </li>

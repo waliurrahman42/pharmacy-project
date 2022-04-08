@@ -43,6 +43,10 @@ public class MyController {
 	}
 	
 	
-
+	@RequestMapping("/settings")
+	public String settings() {
+		System.out.println("settings is excuted");
+		return "settings";
+	}
 	
 }
