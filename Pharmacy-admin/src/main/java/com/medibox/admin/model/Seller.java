@@ -40,9 +40,11 @@ public class Seller {
 	@Column(nullable = false)
 	private int shopPincode;
 	
-	
+	//@Column(nullable = false)
 	private String documentUrl;
 
+	
+	
 	public int getSellerId() {
 		return sellerId;
 	}

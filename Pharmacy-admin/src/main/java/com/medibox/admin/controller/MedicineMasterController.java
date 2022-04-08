@@ -1,14 +1,19 @@
 package com.medibox.admin.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.medibox.admin.FileUploadUtils;
 import com.medibox.admin.model.ChemicalClass;
 import com.medibox.admin.model.ManufactureMaster;
 import com.medibox.admin.model.MedicineMaster;
@@ -195,10 +200,27 @@ public class MedicineMasterController {
 	
 	//adding medicine data in db
 	@PostMapping("/addmedicine")
-	public String addMedicine(MedicineMaster medi) {
+	public String addMedicine(MedicineMaster medi,@RequestParam("image1")MultipartFile multipartFile1,@RequestParam("image1")MultipartFile multipartFile2) throws IOException {
 		System.out.println(" add Medicine is executed");
-		medicineMasterImp.saveMedicine(medi);
-		return "medicineMaster";
+		
+		
+		if (medi!=null) {
+			
+			String filename1=StringUtils.cleanPath(multipartFile1.getOriginalFilename());
+			String filename2=StringUtils.cleanPath(multipartFile2.getOriginalFilename());
+			
+			
+			String uploadDir1="src/main/resources/static/documents/seller";
+			String uploadDir2="src/main/resources/static/Dbmedicineimage";
+			
+			FileUploadUtils.saveFile(uploadDir1, filename1, multipartFile1);
+			FileUploadUtils.saveFile(uploadDir2, filename2, multipartFile2);
+			medi.setMedicineUrl1("/Dbmedicineimage/"+filename1);
+			medi.setMedicineUrl2("/Dbmedicineimage/"+filename2);
+			
+			medicineMasterImp.saveMedicine(medi);
+		}
+			return "medicineMaster";
 	}
 	
 	    // finding manufacture by  id

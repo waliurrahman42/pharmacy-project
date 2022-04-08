@@ -86,7 +86,9 @@
               <h4>Seller Registration</h4>
             </div>
             <div class="card-body">
-              <form method="post" action="/addSeller">
+              
+              
+              <form method="post" action="/addSeller" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="fullname"><b>Full Name</b></label>
                   <input type="text" name="fullName" class="form-control" placeholder="Enter Name" name="fullname"
@@ -141,10 +143,10 @@
                     id="ShopPincode" name="pincode" minlength="6" maxlength="6" /><br /><br />
                 </div>
 
-                <div class="form-group">
+               <div class="form-group">
                   <label for="myfile">Select a file:</label>
-                  <input type="file" name="documentUrl" class="form-control" id="myfile" name="myfile" />
-                </div>
+                  <input type="file" name="myfilesdoc"   accept="image/*,.pdf"  class="form-control" id="myfile"  />
+                </div> 
 
                 <input type="submit" value="Sign Up" class="btn btn-outline-primary btn-block" />
 

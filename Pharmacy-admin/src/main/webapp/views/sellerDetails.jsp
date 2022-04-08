@@ -37,7 +37,10 @@
       <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="row card h-80">
-            <form method="post" action="/sellerStatusupdate">
+          
+          	<img alt="document" src="${currentuser.documentUrl}" height="auto" width="200px">
+          
+            <form method="post" action="/sellerStatusupdate"  enctype="multipart/form-data" >
               <div class="card-body" id="add">
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -132,9 +135,9 @@
                   </div>
                   
                   
-                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
-                      <label for="ShopPincode">Document Url</label>
+                      <label for="shopeDocumentUrl">Document Url</label>
                       <input
                         type="text"
                         name="documentUrl"
@@ -145,7 +148,9 @@
                         readonly
                       />
                     </div>
-                  </div>
+                  </div> 
+                  
+                  
                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="ShopAddress">Shop Address</label>
@@ -203,6 +208,11 @@
                 </div>
               </div>
             </form>
+            
+            
+            
+            
+            
           </div>
         </div>
       </div>

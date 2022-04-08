@@ -490,7 +490,7 @@
      
      
 	    <div class=" container-fluid py-4" id="collapseADDMedicineData">
-	      <form id="medicineRegisterpage" <c:if test="${update}"> action="updatemedicine" </c:if> <c:if test="${!update}" > action="addmedicine" </c:if> method="post">
+	      <form id="medicineRegisterpage" <c:if test="${update}"> action="updatemedicine" </c:if> <c:if test="${!update}" > action="addmedicine" </c:if> method="post"  enctype="multipart/form-data">
 	        <legend>Medicine Add</legend>
 	        
 	        <c:if test="${update}">
@@ -680,7 +680,7 @@
 	          <input
 	            type="text"
 	            name="howToUse"
-	             value="${editmedicine.howToUse}"
+	            value="${editmedicine.howToUse}"
 	            class="form-control"
 	            aria-label="Small"
 	            aria-describedby="inputGroup-sizing-sm"
@@ -765,7 +765,7 @@
 	            >
 	          </div>
 	          <div class="custom-file">
-	            <input type="file" name="medicineUrl1"  value="${editmedicine.medicineUrl1}" class="custom-file-input" id="customFile" />
+	            <input type="file" name="image1"  accept="image/*" value="${editmedicine.medicineUrl1}" class="custom-file-input" id="customFile" />
 	            <label class="custom-file-label" for="customFile"
 	              >Choose file</label
 	            >
@@ -781,7 +781,7 @@
 	            >
 	          </div>
 	          <div class="custom-file">
-	            <input type="file" name="medicineUrl2" value="${editmedicine.medicineUrl2}" class="custom-file-input" id="customFile" />
+	            <input type="file" name="image2"  accept="image/*"  value="${editmedicine.medicineUrl2}" class="custom-file-input" id="customFile" />
 	            <label class="custom-file-label" for="customFile"
 	              >Choose file</label
 	            >
@@ -864,8 +864,8 @@
 	                <td>${medList.habitForming }</td>
 	                <td>${medList.therapeuticClass.tName }</td>
 	                <td>${medList.actionClass }</td>
-	                <td>${medList.medicineUrl1 }</td>
-	                <td>${medList.medicineUrl2 }</td>
+	                <td> <img alt="" src="${medList.medicineUrl1}" height="50px" width="100px"></td>
+	                <td> <img alt="" src="${medList.medicineUrl2}" height="50px" width="100px"></td>
 	                <td><a class="btn btn-success " href="/editmedicine?medicineId=${medList.medicineId }">Edit</a>
 					<a class="btn btn-danger " href="/deletemedicine?medicineId=${medList.medicineId }">Delete</a></td>
 	             
