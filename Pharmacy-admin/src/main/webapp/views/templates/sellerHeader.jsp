@@ -63,7 +63,7 @@
                 class="nav-link dropdown-toggle"
                 data-toggle="dropdown"
               >
-                <i class="fas fa-user"></i> Welcome Wali
+                <i class="fas fa-user"></i> Welcome ${logedinUser.fullName}
               </a>
               <div class="dropdown-menu">
                 <a href="profile.html" class="dropdown-item">
@@ -75,7 +75,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a href="/sellerSignUp" class="nav-link">
+              <a href="/logout" class="nav-link">
                 <i class="fas fa-user-times"></i> Logout
               </a>
             </li>

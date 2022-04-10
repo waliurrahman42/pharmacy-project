@@ -63,15 +63,22 @@
     </div>
   </section>
   
-  		<c:if test="${sellerReg}">
-			<div class="w-50  m-auto alert alert-success alert-dismissible fade show" role="alert">
-				  <strong>Success!</strong> You have been successfully registered.Please wait for the admin approval .
+  		<c:if test="${ invalid }">
+			<div class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show" role="alert">
+					<strong>Invalid!!!!!!!</strong>Email and Password 
+				  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				     <span aria-hidden="true">&times;</span>
+				  	</button>
+			</div>
+		</c:if>
+ 		<c:if test="${notactive}">
+			<div class="w-50  m-auto alert alert-success text-center alert-dismissible fade show" role="alert">
+			 		<strong> Please wait for the admin approval .</strong> 
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
 				  </button>
 			</div>
 		</c:if>
- 
 
 
 

@@ -46,7 +46,6 @@ public class SellerServiceImplemention implements SellerService {
 
 	@Override
 	public int countSeller() {
-		
 		return sellerReprository.sellerCount();
 	}
 

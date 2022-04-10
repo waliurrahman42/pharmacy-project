@@ -64,7 +64,7 @@
   </section>
   
   		<c:if test="${sellerReg}">
-			<div class="w-50  m-auto alert alert-success alert-dismissible fade show" role="alert">
+			<div class="w-50  m-auto alert alert-success text-center alert-dismissible fade show" role="alert">
 				  <strong>Success!</strong> You have been successfully registered.Please wait for the admin approval .
 				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				    <span aria-hidden="true">&times;</span>
@@ -72,7 +72,14 @@
 			</div>
 		</c:if>
   
-  
+  		<c:if test="${sellerexist}">
+			<div class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show" role="alert">
+				  <strong>Invalid!</strong> email id already exist
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+			</div>
+		</c:if>
   
   
 
@@ -89,6 +96,7 @@
               
               
               <form method="post" action="/addSeller" enctype="multipart/form-data">
+                
                 <div class="form-group">
                   <label for="fullname"><b>Full Name</b></label>
                   <input type="text" name="fullName" class="form-control" placeholder="Enter Name" name="fullname"
@@ -151,7 +159,7 @@
                 <input type="submit" value="Sign Up" class="btn btn-outline-primary btn-block" />
 
                 <p class="signinlink">
-                  I already have an account <a href="/Sellerlogin">Sign In</a>
+                  I already have an account <a href="/sellerlogin">Sign In</a>
                 </p>
               </form>
             </div>

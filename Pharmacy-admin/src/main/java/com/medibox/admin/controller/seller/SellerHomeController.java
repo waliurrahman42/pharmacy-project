@@ -24,7 +24,9 @@ public class SellerHomeController {
 	
 	@RequestMapping("/medicineInventory")
 	public String medicineInventory(Model m) {
+		
 		m.addAttribute("listOfMedicine", medicineMasterService.listOfMedicineMaster());
+		
 		return "seller/MedicineList";	
 	}
 

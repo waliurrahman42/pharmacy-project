@@ -19,4 +19,6 @@ public interface SellerMedicneManagerService {
 	
 	List<SellerMedicneManager> findByMedicneId(Integer sellerId);
 	
+	
+
 }

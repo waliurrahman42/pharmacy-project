@@ -31,7 +31,7 @@ public class MyController {
 	@RequestMapping("/")
 	public String index() {
 		System.out.println("home is excuted");
-		return "index";
+		return "admin/index";
 	}
 	
 	
@@ -39,7 +39,7 @@ public class MyController {
 	@RequestMapping("/home")
 	public String home() {
 		System.out.println("home is excuted");
-		return "index";
+		return "admin/index";
 	}
 	
 	
@@ -48,7 +48,7 @@ public class MyController {
 	@RequestMapping("/settings")
 	public String settings() {
 		System.out.println("settings is excuted");
-		return "settings";
+		return "admin/settings";
 	}
 	
 }

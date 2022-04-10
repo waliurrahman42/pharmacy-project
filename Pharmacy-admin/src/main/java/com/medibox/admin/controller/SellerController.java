@@ -32,7 +32,7 @@ public class SellerController {
 		m.addAttribute("Sellerlist", sellerService.listOfSeller());
 		//m.addAttribute("Sellerlist",sellerReprository.findAll());
 		//System.out.println("sellerList");
-		return "sellerList";
+		return "admin/sellerList";
 	}
 	
 	
@@ -43,7 +43,7 @@ public class SellerController {
 		m.addAttribute("currentuser", sellerService.findBySellerId(sid));
 		
 		//System.out.println(sellerService.listOfSeller());
-		return "sellerDetails";
+		return "admin/sellerDetails";
 	}
 	
 	@PostMapping("/sellerStatusupdate")
@@ -52,7 +52,7 @@ public class SellerController {
 				  seller.setPassword(sellerDetails.getPassword());
 		sellerService.editSeller(seller);
 		m.addAttribute("currentuser", sellerService.findBySellerId(seller.getSellerId()));
-		return "sellerDetails";
+		return "admin/sellerDetails";
 	}
 	
 	

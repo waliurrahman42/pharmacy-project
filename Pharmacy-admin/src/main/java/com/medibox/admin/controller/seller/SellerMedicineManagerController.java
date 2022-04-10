@@ -1,23 +1,24 @@
 package com.medibox.admin.controller.seller;
 
-import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.medibox.admin.model.MedicineMaster;
+import com.medibox.admin.model.Seller;
 import com.medibox.admin.model.SellerMedicneManager;
-import com.medibox.admin.reprository.SellerMedicneManagerReporository;
 import com.medibox.admin.service.SellerMedicneManagerService;
 import com.medibox.admin.service.implement.MedicineMasterImplementation;
+
+
+
 
 @Controller
 public class SellerMedicineManagerController {
@@ -28,36 +29,66 @@ public class SellerMedicineManagerController {
 	private MedicineMasterImplementation   medicineMasterImp;
 	
 	@ModelAttribute
-	public void commonDataSendforModal(Model m) {
-		
+	public void commonDataSendforModal(Model m,HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+			m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
+			m.addAttribute("listOfMedicine",medicineMasterImp.listOfMedicineMaster());
+		}	
 	}
-	
-	
-	
-	
-	
 	
 	
 	
 	
 	
 	@RequestMapping("/sellerMedicineManager")
-	public String medicineManager(Model m) {
-		m.addAttribute("listOfSellerMedicine",sellerMedMngrService.listOfSellerMedicneManager());
-		m.addAttribute("listOfMedicine",medicineMasterImp.listOfMedicineMaster());
-		//System.out.println(medicineMasterImp.listOfMedicineNameId());
-		return "seller/sellerMedicineManager";	
-	}
-	
-	
-	
-	@GetMapping("/AddinurStock")
-	public String medicineManager(@RequestParam("mid")Integer mid,Model m) {
-		//m.addAttribute("listOfSellerMedicine",sellerMedMngrService.listOfSellerMedicneManager());	
-		m.addAttribute("singleMedicine",medicineMasterImp.findByMedicineId(mid));
+	public String medicineManager(Model m,HttpServletRequest request) {
 		
-		return "seller/sellerMedicineManager";	
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+		//	m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
+		//	m.addAttribute("listOfMedicine",medicineMasterImp.listOfMedicineMaster());
+		//	
+			return "seller/sellerMedicineManager";	
+		}
+		return  "redirect:/sellerlogin";
 	}
+	
+	
+	//form medicine inventery to qunatatiy manager page;
+	@GetMapping("/AddinurStock")
+	public String medicineManager(@RequestParam("mid")Integer mid,Model m,HttpServletRequest request) {
+		
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+			m.addAttribute("singleMedicine",medicineMasterImp.findByMedicineId(mid));
+		//	m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
+			return "seller/sellerMedicineManager";	
+		}
+		return  "redirect:/sellerlogin";
+	}
+	
+	
+	
+	
+	//adding quantity and updating
+	@PostMapping("/addQuant")
+	public String addmedicineQuantity(SellerMedicneManager smManager ,Model m,HttpServletRequest request) {
+		
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+			smManager.setSeller(seller);
+			sellerMedMngrService.addSellerMedicneManager(smManager);
+			return "seller/sellerMedicineManager";	
+		}
+		return  "redirect:/sellerlogin";
+	}
+	
+	
 	
 	
 	

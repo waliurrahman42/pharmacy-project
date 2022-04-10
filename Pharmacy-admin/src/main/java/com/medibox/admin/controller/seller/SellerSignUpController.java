@@ -2,6 +2,8 @@ package com.medibox.admin.controller.seller;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,11 @@ public class SellerSignUpController {
 	}
 	
 	
+	
+	
+	
+	
+	
 //	@PostMapping("/addSeller")
 //	public String Registration(Seller s,Model m) {
 //		sellerService.addSeller(s);
@@ -41,15 +48,15 @@ public class SellerSignUpController {
 //		return "sellerSignUp";
 //	}
 	
-	
+	//signup
 	@PostMapping("/addSeller")
 	public String Registration(Seller s,@RequestParam("myfilesdoc")MultipartFile multipartFile,Model m) throws IOException{
 		
-		if (s!=null) {
-			System.out.println("seller Registration 2");
+		Seller existingseller=sellerService.findBySellerEmail(s.getEmailId());
+		
+		if (existingseller==null) {
+			
 			String filename=StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
-			
 			
 			//String uploadDir="src/main/resources/static/documents/seller";
 			String uploadDir ="src/main/webapp/uplodedDocImg/DocumentSeller";
@@ -58,33 +65,54 @@ public class SellerSignUpController {
 			s.setDocumentUrl("/uplodedDocImg/DocumentSeller/"+filename);
 			sellerService.addSeller(s);
 			
-		
 			m.addAttribute("sellerReg",true);
-			System.out.println("seller Registration");
-			
+			return "seller/sellerSignUp";
 		}
+		m.addAttribute("sellerexist",true);
 		return "seller/sellerSignUp";
+	}
+	
+	
+	
+	@RequestMapping("/sellerlogin")
+	public String loginpage() {
+		System.out.println("seller login");
+		return  "seller/sellerLogin";
 	}
 	
 	
 	
 	
 	@PostMapping("/sellerlogin")
-	public String sellerLogin(@RequestParam("uemail")String uname,@RequestParam("upass")String upass) {
-		
-		
-		if(uname==upass) {
-			
-			return "sellerIndex";
+	public String sellerLogin(@RequestParam("uemail")String uname,@RequestParam("upass")String upass,
+							HttpServletRequest request	,Model m) {
+		Seller seller=sellerService.findBySellerEmailAndPasswordStatusIsActive(uname, upass);
+		if(seller!=null) {
+			if(seller.getStatus()==0) {
+				m.addAttribute("notactive", true);
+				return  "seller/sellerLogin";
+			}
+			else {
+				HttpSession session=request.getSession();
+				session.setAttribute("logedinUser", seller);
+				return "seller/sellerIndex";
+			}
 		}
-		
-		return null;
+		m.addAttribute("invalid", true);
+		System.out.println("login not success");
+		return  "seller/sellerLogin";
 	}
 	
 	
 	
-	
-	
+	//logout sller
+	@RequestMapping("/logout")
+	public String Logoutseller(HttpServletRequest request) {
+		HttpSession session=request.getSession();
+		session.invalidate();
+		System.out.println("seller logout");
+		return  "redirect:/sellerlogin";
+	}
 	
 	
 	

@@ -34,7 +34,7 @@ public class UserAdminController {
 		List<User>	users=userService.listOfUser();
 		m.addAttribute("Userlist", users);
 		System.out.println(users);
-		return "Users";
+		return "admin/Users";
 	}
 	
 	
@@ -49,7 +49,7 @@ public class UserAdminController {
 	@GetMapping("/UserDetailsFind")
 	public String UserDetails(@RequestParam("uid")Integer uid,Model m) {
 		m.addAttribute("currentuser", userService.findByUserId(uid));
-		return "UserDetails";
+		return "admin/UserDetails";
 	}
 	
 	//adding data in database
@@ -60,10 +60,10 @@ public class UserAdminController {
 			uAddService.addUserAddress(uAdd);
 			m.addAttribute("addressSave", true);
 			m.addAttribute("currentuser", userService.findByUserId(uAdd.getUser().getUserId()));
-			return "UserDetails";
+			return "admin/UserDetails";
 		}
 		m.addAttribute("currentuser", userService.findByUserId(uAdd.getUser().getUserId()));
-		return "UserDetails";
+		return "admin/UserDetails";
 	}
 	
 	
@@ -108,10 +108,10 @@ public class UserAdminController {
 			
 			m.addAttribute("editAddFormDetails", userAddress);
 			m.addAttribute("editAddForm", true);
-			return "UserDetails";
+			return "admin/UserDetails";
 		}
 		m.addAttribute("currentuser", userService.findByUserId(userAddress.getUser().getUserId()));
-		return "UserDetails";
+		return "admin/UserDetails";
 	}
 	
 	//updating user  
@@ -120,7 +120,7 @@ public class UserAdminController {
 		System.out.println("update UserAddress");
 			uAddService.addUserAddress(uAdd);
 			m.addAttribute("currentuser", userService.findByUserId(uAdd.getUser().getUserId()));
-			return "UserDetails";
+			return "admin/UserDetails";
 	}
 	
 	
@@ -133,9 +133,9 @@ public class UserAdminController {
 			uAddService.deleteUserAddress(userAddress);
 			m.addAttribute("deletedAdd", true);
 			m.addAttribute("currentuser", userService.findByUserId(userAddress.getUser().getUserId()));
-			return "UserDetails";
+			return "admin/UserDetails";
 		}
 		m.addAttribute("currentuser", userService.findByUserId(userAddress.getUser().getUserId()));
-		return "UserDetails";
+		return "admin/UserDetails";
 	}
 }

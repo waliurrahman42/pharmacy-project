@@ -53,37 +53,16 @@ pageEncoding="ISO-8859-1"%>
         
       </div>
 
-     <!--  <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Medicine Name</th>
-            <th scope="col">Salt</th>
-            <th scope="col">type Of Sell</th>
-            <th scope="col">MRP</th>
-            <th scope="col">Ur extra Discount</th>
-            <th scope="col">medi box discount</th>
-          </tr>
-        </thead>
-        <tbody id="search-result">
-          <tr>
-            <th scope="row">1</th>
-            <td>Cildip T</td>
-            <td>1</td>
-            <td>10%</td>
-            <td>200</td>
-            <td>180</td>
-          </tr>
-        </tbody>
-      </table> -->
+   <!-- form for add quantity of medicine -->
 
-      <div class="" id="">
+       <form action="addQuant" method="post">
         <table class="table">
           <thead class="thead-light">
             <tr>
               <th scope="col">
                 <div class="form-group">
                   <label for="Name">Medicine Name</label>
-                  		<select class="form-control" id="MName" onchange="MedecineData()">
+                  		<select class="form-control" name="medicineMaster"  id="MName" onchange="MedecineData()">
 				<c:if test="${singleMedicine!=null }"> <option value="${singleMedicine.medicineId}">${singleMedicine.medicineName}</option> </c:if>
 					          	<c:if test="${singleMedicine==null }">
 					          		<option value="-1">---Select Medicine--</option>
@@ -98,9 +77,9 @@ pageEncoding="ISO-8859-1"%>
                 <div class="form-group">
                   <label for="Quantity">Quantity</label>
                   <input
-                    type="text"
+                    type="number"
                     class="form-control"
-                    name=""
+                    name="qunatity"
                     id="Quantity"
                     placeholder="10"
                   />
@@ -112,7 +91,7 @@ pageEncoding="ISO-8859-1"%>
                   <input
                     type="number"
                     class="form-control"
-                    name=""
+                    name="sellerDiscount"
                     id="Quantity"
                     placeholder="5%"
                   />
@@ -126,7 +105,7 @@ pageEncoding="ISO-8859-1"%>
             </tr>
           </thead>
         </table>
-      </div>
+   </form>
     </section>
 
     <!-- list of medicine  -->

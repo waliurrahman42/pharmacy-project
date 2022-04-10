@@ -13,13 +13,21 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 
 	@Autowired
 	private SellerMedicneManagerReporository sellerMedicneManagerReporository;
+	private SellerMedicneManager medicineAndSellerfound;
 	
 	@Override
 	public SellerMedicneManager addSellerMedicneManager(SellerMedicneManager sellerMedicneManager) {
+		medicineAndSellerfound = findMedicineWithSeller(sellerMedicneManager);
 		
+		if(medicineAndSellerfound!=null) {
+			medicineAndSellerfound.setQunatity(sellerMedicneManager.getQunatity());
+			medicineAndSellerfound.setSellerDiscount(sellerMedicneManager.getSellerDiscount());
+			return sellerMedicneManagerReporository.save(medicineAndSellerfound);
+		}
 		return sellerMedicneManagerReporository.save(sellerMedicneManager);
 	}
 
+	
 	@Override
 	public List<SellerMedicneManager> listOfSellerMedicneManager() {
 		return sellerMedicneManagerReporository.findAll();
@@ -54,6 +62,14 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 	public List<SellerMedicneManager> findByMedicneId(Integer MedicneId) {
 		// TODO Auto-generated method stub
 		return sellerMedicneManagerReporository.findByMedicneId(MedicneId);
+	}
+
+	
+	public SellerMedicneManager findMedicineWithSeller(SellerMedicneManager sellerMedicneManager) {
+		int mediId=sellerMedicneManager.getMedicineMaster().getMedicineId();
+		int	sellerId=sellerMedicneManager.getSeller().getSellerId();
+		
+		return sellerMedicneManagerReporository.findMedicineIdWithSellerId(mediId, sellerId);
 	}
 
 }

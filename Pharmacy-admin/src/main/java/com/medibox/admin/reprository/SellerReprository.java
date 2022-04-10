@@ -20,10 +20,18 @@ public interface SellerReprository extends JpaRepository<Seller	, Integer> {
 	List<Seller> findPendingList(Integer a);
 
 
+
+//	@Query("select s from Seller s where s.emailId=?1 and s.password=?2  and s.status=1")
+//	Seller findBySellerEmailAndPasswordStatusIsActive(String email, String pass);
+
 	
-	@Query("select s from Seller s where s.emailId=?1 and s.password=?2  and s.status=1")
+	@Query("select s from Seller s where s.emailId=?1 and s.password=?2")
 	Seller findBySellerEmailAndPasswordStatusIsActive(String email, String pass);
 
+	
+	
+	
+	
 	
 	@Query("select s from Seller s where s.emailId=?1")
 	Seller findBySellerEmail(String email);

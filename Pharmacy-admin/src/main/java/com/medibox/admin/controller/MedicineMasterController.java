@@ -55,7 +55,7 @@ public class MedicineMasterController {
 	@RequestMapping("/medicinemaster")
 	public String medicinemaster(Model m) {
 		System.out.println(" medicineMaster is executed");
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	
@@ -67,7 +67,7 @@ public class MedicineMasterController {
 	public String addTherapeuticClass(TherapeuticClass therapeuticClass) {
 		System.out.println(" addtherapeuticclass is executed");
 		therapeuticClassImp.addTherapeuticClass(therapeuticClass);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	// finding thepuritic by  id
@@ -76,7 +76,7 @@ public class MedicineMasterController {
 		System.out.println(" finding thepuritic by  id");
 		m.addAttribute("editTherapeuticClass", therapeuticClassImp.findByTherapeuticClassId(therapeuticClassId));
 		m.addAttribute("update",true);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	//update theroputic class 
@@ -88,7 +88,7 @@ public class MedicineMasterController {
 			m.addAttribute("edit",true);
 		}
 			m.addAttribute("noedit",true);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	
@@ -131,7 +131,7 @@ public class MedicineMasterController {
 				m.addAttribute("edit",true);
 			}
 				m.addAttribute("noedit",true);
-			return "medicineMaster";
+			return "admin/medicineMaster";
 		}
 		
 		//delete  manufacture name
@@ -140,7 +140,7 @@ public class MedicineMasterController {
 			System.out.println(" delete manufacture");
 			manufactureMasterImp.deleteManufacture(manufactureMasterImp.findByManufactureId(manufactureId));
 			m.addAttribute("deleteMsg", "Deleted Manufacture Name successfully!!!");
-			return "medicineMaster";
+			return "admin/medicineMaster";
 		}
 	
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
@@ -149,7 +149,7 @@ public class MedicineMasterController {
 	public String addChemicalClass(ChemicalClass chemicalClass) {
 		System.out.println(" addmanufacture is executed");
 		chemicalClassImp.addChemicalClass(chemicalClass);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	// finding Chemical class by  id
@@ -158,7 +158,7 @@ public class MedicineMasterController {
 		System.out.println(" editchemicalName");
 		m.addAttribute("editChemicalname", chemicalClassImp.findByChemicalClassId(chemicalId));
 		m.addAttribute("update",true);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	//update Chemical class
@@ -170,7 +170,7 @@ public class MedicineMasterController {
 			m.addAttribute("edit",true);
 		}
 			m.addAttribute("noedit",true);
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	//delete  Chemicalclass name
@@ -179,7 +179,7 @@ public class MedicineMasterController {
 		System.out.println(" delete chemicalName");
 		chemicalClassImp.deleteChemicalClass(chemicalClassImp.findByChemicalClassId(chemicalId));
 		m.addAttribute("deleteMsg", "Deleted chemical Name successfully!!!");
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 
 	
@@ -195,7 +195,7 @@ public class MedicineMasterController {
 		m.addAttribute("manuf", manufactureMasterImp.listOfManufactureMaster());
 		m.addAttribute("chemlist2", chemicalClassImp.listOfChemicalClass());
 		m.addAttribute("therclass", therapeuticClassImp.listOfTherapeuticClass());
-		return "medicineMaster";
+		return "admin/medicineMaster";
 	}
 	
 	//adding medicine data in db
@@ -222,7 +222,7 @@ public class MedicineMasterController {
 			
 			medicineMasterImp.saveMedicine(medi);
 		}
-			return "medicineMaster";
+			return "admin/medicineMaster";
 	}
 	
 	    // finding manufacture by  id
@@ -232,7 +232,7 @@ public class MedicineMasterController {
 			m.addAttribute("editmedicine", medicineMasterImp.findByMedicineId(medicineId));
 			m.addAttribute("editform", true);
 			m.addAttribute("update",true);
-			return "medicineMaster";
+			return "admin/medicineMaster";
 		}
 			
 		//update Medicine  
@@ -244,7 +244,7 @@ public class MedicineMasterController {
 				m.addAttribute("edit",true);
 			}
 				m.addAttribute("noedit",true);
-			return "medicineMaster";
+			return "admin/medicineMaster";
 		}
 		
 	//delete Medicine  name
@@ -253,7 +253,7 @@ public class MedicineMasterController {
 			System.out.println(" delete manufacture");
 			medicineMasterImp.deleteMedicine(medicineMasterImp.findByMedicineId(medicineId));
 			m.addAttribute("deleteMsg", "Deleted Medicine  successfully!!!");
-			return "medicineMaster";
+			return "admin/medicineMaster";
 		}
 		
 }
