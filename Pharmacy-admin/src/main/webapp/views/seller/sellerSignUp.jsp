@@ -34,18 +34,20 @@
 
 <body>
   <!-- nav section -->
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
+ <!--  <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
     <div class="container">
-      <a href="/Sellerindex" class="navbar-brand">MediBox</a>
+    	<div class="bg-white my-1"> 
+     		<a href="/sellerSignUp" class="navbar-brand"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
+    	</div>
     </div>
-  </nav>
+  </nav> -->
 
   <!-- HEADER -->
   <header id="main-header" class="py-2 bg-primary text-white">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <a href="#" class="navbar-brand"> <img src="/image/logo1.png" alt="@logo" height="50px" width="auto"> </a>
+      <div class="row ">
+       	<div class="col-md-6 ">
+         <a href="/sellerSignUp" class="navbar-brand bg-white my-1"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
         </div>
         <div class="col-md-6">
           <h1><i class="fas fa-user"></i> MediBox Seller</h1>
@@ -60,8 +62,21 @@
       <div class="row"></div>
     </div>
   </section>
+  
+  		<c:if test="${sellerReg}">
+			<div class="w-50  m-auto alert alert-success alert-dismissible fade show" role="alert">
+				  <strong>Success!</strong> You have been successfully registered.Please wait for the admin approval .
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span>
+				  </button>
+			</div>
+		</c:if>
+  
+  
+  
+  
 
-  <!-- LOGIN -->
+  <!-- SignUpSeller -->
   <section id="SignUpSeller">
     <div class="container">
       <div class="row">
@@ -71,7 +86,9 @@
               <h4>Seller Registration</h4>
             </div>
             <div class="card-body">
-              <form>
+              
+              
+              <form method="post" action="/addSeller" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="fullname"><b>Full Name</b></label>
                   <input type="text" name="fullName" class="form-control" placeholder="Enter Name" name="fullname"
@@ -109,8 +126,8 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="ShopContactNo"><b>ShopContactNo</b></label>
-                  <input type="text" name="" class="form-control" placeholder="ShopContactNo " name="ShopContactNo"
+                  <label for="ShopContactNo"><b>Shop Contact No</b></label>
+                  <input type="text"  class="form-control" placeholder="ShopContactNo " name="ShopContactNo"
                     id="ShopContactNo" required />
                 </div>
 
@@ -126,10 +143,10 @@
                     id="ShopPincode" name="pincode" minlength="6" maxlength="6" /><br /><br />
                 </div>
 
-                <div class="form-group">
+               <div class="form-group">
                   <label for="myfile">Select a file:</label>
-                  <input type="file" name="documentUrl" class="form-control" id="myfile" name="myfile" />
-                </div>
+                  <input type="file" name="myfilesdoc"   accept="image/*,.pdf"  class="form-control" id="myfile"  />
+                </div> 
 
                 <input type="submit" value="Sign Up" class="btn btn-outline-primary btn-block" />
 
@@ -152,7 +169,7 @@
           <p class="lead text-center">
             Copyright &copy;
             <span id="year"></span>
-            Blogen
+           		MediBox
           </p>
         </div>
       </div>

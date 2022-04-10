@@ -56,4 +56,16 @@ public class SellerServiceImplemention implements SellerService {
 		return sellerReprository.findPendingList(0);
 	}
 
+	@Override
+	public Seller findBySellerEmailAndPasswordStatusIsActive(String email, String pass) {
+		// TODO Auto-generated method stub
+		return sellerReprository.findBySellerEmailAndPasswordStatusIsActive(email, pass);
+	}
+
+	@Override
+	public Seller findBySellerEmail(String email) {
+		
+		return sellerReprository.findBySellerEmail(email);
+	}
+
 }

@@ -16,6 +16,6 @@ public interface ManufactureMasterReprository extends JpaRepository<ManufactureM
 
 
 	//	@Query("select u.manufactureId u.manufactureName from ManufactureMaster u")
-//	ManufactureMaster findByAll();
+	//	ManufactureMaster findByAll();
 	 
 }

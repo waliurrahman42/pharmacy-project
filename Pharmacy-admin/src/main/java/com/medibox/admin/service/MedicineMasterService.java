@@ -21,4 +21,7 @@ public interface MedicineMasterService {
 
 	void editMedicine(MedicineMaster med);
 	
+	List<MedicineMaster> findMedicineByNameLike(String str);
+	
+	List<MedicineMaster> listOfMedicineNameId();
 }

@@ -1,10 +1,14 @@
 package com.medibox.admin.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Seller {
@@ -43,6 +47,17 @@ public class Seller {
 	//@Column(nullable = false)
 	private String documentUrl;
 
+	
+	@OneToMany(mappedBy = "seller" ,cascade = CascadeType.ALL)
+	private List<SellerMedicneManager> sellerMedicneManager;
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public int getSellerId() {
@@ -132,12 +147,42 @@ public class Seller {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+////////////////////////////////////////
+	public List<SellerMedicneManager> getSellerMedicneManager() {
+		return sellerMedicneManager;
+	}
 
+	public void setSellerMedicneManager(List<SellerMedicneManager> sellerMedicneManager) {
+		this.sellerMedicneManager = sellerMedicneManager;
+	}
+
+	
+
+	
+	
+	///////////////////////////
+	
+	
+	
+
+	
 	@Override
 	public String toString() {
 		return "Seller [sellerId=" + sellerId + ", fullName=" + fullName + ", emailId=" + emailId + ", password="
 				+ password + ", status=" + status + ", shopName=" + shopName + ", shopeRegNo=" + shopeRegNo
 				+ ", shopContactNo=" + shopContactNo + ", shopAddress=" + shopAddress + ", shopPincode=" + shopPincode
-				+ ", documentUrl=" + documentUrl + "]";
+				+ ", documentUrl=" + documentUrl + ", sellerMedicneManager=" + sellerMedicneManager + "]";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

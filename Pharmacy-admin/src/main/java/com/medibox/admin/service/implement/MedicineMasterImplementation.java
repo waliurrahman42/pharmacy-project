@@ -48,6 +48,18 @@ public class MedicineMasterImplementation implements MedicineMasterService{
 		
 		return	medicineMasterRepro.findAll();
 	}
+
+	@Override
+	public List<MedicineMaster> listOfMedicineNameId() {
+		
+		return medicineMasterRepro.listOfMedicineNameIdTypeOfsellMrpSalt();
+	}
+
+	@Override
+	public List<MedicineMaster> findMedicineByNameLike(String str) {
+		
+		return medicineMasterRepro.findByMedicineName(str);
+	}
 	
 	
 	

@@ -27,13 +27,14 @@
     <script src="/js/myjScriptadmin.js"></script>
   </head>
 
-  <body>
-  
-    <!-- nav section -->
+<body>
+
+	
+<!-- nav section -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
       <div class="container">
-      	<a href="/home" class="navbar-brand bg-white my-1"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
-        <a href="/home" class="navbar-brand">AdminPannel</a>
+      	<a href="/homeseller" class="navbar-brand bg-white my-1"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
+        <a href="/homeseller" class="navbar-brand">Seller Pannel</a>
         <button
           class="navbar-toggler"
           data-toggle="collapse"
@@ -44,20 +45,15 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item px-2">
-              <a href="/home" class="nav-link active">Dashboard</a>
+              <a href="/homeseller" class="nav-link active">Dashboard</a>
             </li>
             <li class="nav-item px-2">
-              <a href="/seller" class="nav-link">Seller</a>
+              <a href="/orderpage" class="nav-link">Order</a>
             </li>
             <li class="nav-item px-2">
-              <a href="/medicinemaster" class="nav-link">MedicineMaster</a>
+              <a href="/sellerMedicineManager" class="nav-link">Medicine Manager</a>
             </li>
-            <li class="nav-item px-2">
-              <a href="/Users" class="nav-link">Users</a>
-            </li>
-            <li class="nav-item px-2">
-              <a href="/Order" class="nav-link">Order</a>
-            </li>
+            
           </ul>
 
           <ul class="navbar-nav ml-auto">
@@ -70,16 +66,16 @@
                 <i class="fas fa-user"></i> Welcome Wali
               </a>
               <div class="dropdown-menu">
-                <a href="profile.jsp" class="dropdown-item">
+                <a href="profile.html" class="dropdown-item">
                   <i class="fas fa-user-circle"></i> Profile
                 </a>
-                <a href="/settings" class="dropdown-item">
+                <a href="settings.html" class="dropdown-item">
                   <i class="fas fa-cog"></i> Settings
                 </a>
               </div>
             </li>
             <li class="nav-item">
-              <a href="/login" class="nav-link">
+              <a href="/sellerSignUp" class="nav-link">
                 <i class="fas fa-user-times"></i> Logout
               </a>
             </li>
@@ -87,6 +83,13 @@
         </div>
       </div>
     </nav>
+
+
+
+
+
+
+
 
 </body>
 </html>

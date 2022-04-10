@@ -28,6 +28,12 @@ public class MyController {
 		
 	}
 	
+	@RequestMapping("/")
+	public String index() {
+		System.out.println("home is excuted");
+		return "index";
+	}
+	
 	
 	
 	@RequestMapping("/home")
@@ -36,11 +42,7 @@ public class MyController {
 		return "index";
 	}
 	
-	@RequestMapping("/index")
-	public String index() {
-		System.out.println("index is excuted");
-		return "index";
-	}
+	
 	
 	
 	@RequestMapping("/settings")

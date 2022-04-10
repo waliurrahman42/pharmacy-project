@@ -210,13 +210,15 @@ public class MedicineMasterController {
 			String filename2=StringUtils.cleanPath(multipartFile2.getOriginalFilename());
 			
 			
-			String uploadDir1="src/main/resources/static/documents/seller";
-			String uploadDir2="src/main/resources/static/Dbmedicineimage";
+			//String uploadDir1="src/main/resources/static/documents/seller";
+			//String uploadDir2="src/main/resources/static/Dbmedicineimage";
+			String uploadDir1="src/main/webapp/uplodedDocImg/DbmediceneImage";
+			String uploadDir2="src/main/webapp/uplodedDocImg/DbmediceneImage2";
 			
 			FileUploadUtils.saveFile(uploadDir1, filename1, multipartFile1);
 			FileUploadUtils.saveFile(uploadDir2, filename2, multipartFile2);
-			medi.setMedicineUrl1("/Dbmedicineimage/"+filename1);
-			medi.setMedicineUrl2("/Dbmedicineimage/"+filename2);
+			medi.setMedicineUrl1("/uplodedDocImg/DbmediceneImage/"+filename1);
+			medi.setMedicineUrl2("/uplodedDocImg/DbmediceneImage2/"+filename2);
 			
 			medicineMasterImp.saveMedicine(medi);
 		}

@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-    
-    <%@page isELIgnored="false" %>
- 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+pageEncoding="ISO-8859-1"%> <%@page isELIgnored="false" %> <%@ taglib prefix="c"
+uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,19 +26,28 @@
     <script src="/js/myjScriptadmin.js"></script>
   </head>
 
- <body>
+  <body>
+    <%@include file="templates/header.jsp" %>
 
-<%@include file="templates/header.jsp" %>
-
-
- <div class="container mt-3">
+    <div class="container mt-3">
       <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
           <div class="row card h-80">
-          
-          	<img alt="document" src="${currentuser.documentUrl}" height="auto" width="200px">
-          
-            <form method="post" action="/sellerStatusupdate"  enctype="multipart/form-data" >
+            <div class="" style="">
+              <img
+                alt="document"
+                src="${currentuser.documentUrl}"
+                class="rounded mx-auto d-block"
+                height="200px"
+                width="auto"
+              />
+            </div>
+
+            <form
+              method="post"
+              action="/sellerStatusupdate"
+              enctype="multipart/form-data"
+            >
               <div class="card-body" id="add">
                 <div class="row gutters">
                   <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -61,7 +68,7 @@
                       />
                     </div>
                   </div>
-                  
+
                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="fullName">Full Name</label>
@@ -87,7 +94,7 @@
                         id="shopName"
                         value="${currentuser.shopName}"
                         placeholder="Shop Name"
-                       readonly
+                        readonly
                       />
                     </div>
                   </div>
@@ -102,7 +109,7 @@
                         id="shopRegNo"
                         value="${currentuser.shopeRegNo}"
                         placeholder="Shop Registration Number"
-                       readonly
+                        readonly
                       />
                     </div>
                   </div>
@@ -133,9 +140,8 @@
                       />
                     </div>
                   </div>
-                  
-                  
-                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                  <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="shopeDocumentUrl">Document Url</label>
                       <input
@@ -148,9 +154,8 @@
                         readonly
                       />
                     </div>
-                  </div> 
-                  
-                  
+                  </div>
+
                   <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                       <label for="ShopAddress">Shop Address</label>
@@ -182,125 +187,81 @@
                     </div>
                   </div>
 
-                  
-
                   <div class="form-group">
                     <label for="status">status</label>
-                    <select
-                      class="form-control"
-                      name="status"
-                      id="status"
-                    >
-                      <option value="${currentuser.status}"><c:if test="${currentuser.status == 0}">On Hold</c:if> <c:if test="${currentuser.status == 1}"> Active</c:if></option>
+                    <select class="form-control" name="status" id="status">
+                      <option value="${currentuser.status}">
+                        <c:if test="${currentuser.status == 0}">On Hold</c:if>
+                        <c:if test="${currentuser.status == 1}"> Active</c:if>
+                      </option>
                       <option value="1">Active</option>
                       <option value="0">On Hold</option>
                     </select>
                   </div>
 
-
-					 <div class="col-2 offset-8">
+                  <div class="col-2 offset-8">
                     <div class="form-group">
-                      
-                     	<input type="submit"   class="btn btn-success"  value="Update Status" />
+                      <input
+                        type="submit"
+                        class="btn btn-success"
+                        value="Update Status"
+                      />
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </form>
-            
-            
-            
-            
-            
           </div>
         </div>
       </div>
     </div>
 
+    <br />
 
+    <!-- list of medicine available at that Seller -->
 
+    <button
+      class="btn btn-success btn-block"
+      data-toggle="collapse"
+      data-target="#medicine-details"
+    >
+      Show Medicine List
+    </button>
 
+    <div class="collapse" id="medicine-details">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Medicine Name</th>
+            <th scope="col">Salt</th>
+            <th scope="col">type Of Sell</th>
+            <th scope="col">Ur extra Discount</th>
+            <th scope="col">MRP</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">MediBox Selling Price</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <c:forEach var="listM" items="${currentuser.sellerMedicneManager}">
+            <tr>
+              <th scope="row">${listM.medicineMaster.medicineName}</th>
+              <td>${listM.medicineMaster.salt}</td>
+              <td>${listM.medicineMaster.typeOfSell}</td>
+              <td>${listM.sellerDiscount}</td>
+              <td>${listM.medicineMaster.mrp}</td>
+              <td>${listM.qunatity}</td>
+              <td>
+                ${(listM.medicineMaster.mrp) - 10 - (listM.sellerDiscount) }
+              </td>
 
+              <td><a href="#">Edit</a></td>
+            </tr>
+          </c:forEach>
+        </tbody>
+      </table>
+    </div>
 
- <button class="btn btn-success btn-block" data-toggle="collapse" data-target="#medicine-details">Show Medicine List</button>
-
-  <div class="collapse" id="medicine-details">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Medicine Id</th>
-          <th scope="col">Medicine Name</th>
-          <th scope="col">Salt</th>
-          <th scope="col">type Of Sell</th>
-          <th scope="col">Ur extra Discount</th>
-          <th scope="col">MRP</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">MediBox Selling Price</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Cildip T</td>
-          <td>1</td>
-          <td>10%</td>
-          <td>200</td>
-          <td>180</td>
-          <td>180</td>
-          <td>180</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Cildip T</td>
-          <td>1</td>
-          <td>10%</td>
-          <td>200</td>
-          <td>180</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Cildip T</td>
-          <td>1</td>
-          <td>10%</td>
-          <td>200</td>
-          <td>180</td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%@include file="templates/footer.jsp" %>
-
-
-
-
-</body>
+    <%@include file="templates/footer.jsp" %>
+  </body>
 </html>

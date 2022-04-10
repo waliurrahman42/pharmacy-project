@@ -19,6 +19,11 @@ public interface SellerService {
 	void editSeller(Seller seller);
 	
 	
+	Seller findBySellerEmailAndPasswordStatusIsActive(String email,String pass);
+	
+	Seller findBySellerEmail(String email);
+	
+	
 	int countSeller();
 	
 	List<Seller> pendingListOfSeller();

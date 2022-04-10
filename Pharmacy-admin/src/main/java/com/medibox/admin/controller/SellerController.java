@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.medibox.admin.model.Seller;
+import com.medibox.admin.reprository.SellerReprository;
 import com.medibox.admin.service.SellerService;
 
 @Controller
@@ -18,19 +19,30 @@ public class SellerController {
 	
 	@Autowired
 	private SellerService sellerService;
+	@Autowired
+	private SellerReprository sellerReprository;
+	
+	
+	
 	
 	
 	@RequestMapping("/seller")
 	public String Seller(Model m) {
-		List<Seller> sellers=sellerService.listOfSeller();
-		m.addAttribute("Sellerlist", sellers);
-		System.out.println(sellers);
-		return "seller";
+		
+		m.addAttribute("Sellerlist", sellerService.listOfSeller());
+		//m.addAttribute("Sellerlist",sellerReprository.findAll());
+		//System.out.println("sellerList");
+		return "sellerList";
 	}
+	
+	
+	
 	
 	@GetMapping("/sellerDetailsFind")
 	public String sellerDetails(@RequestParam("sid")Integer sid,Model m) {
 		m.addAttribute("currentuser", sellerService.findBySellerId(sid));
+		
+		//System.out.println(sellerService.listOfSeller());
 		return "sellerDetails";
 	}
 	

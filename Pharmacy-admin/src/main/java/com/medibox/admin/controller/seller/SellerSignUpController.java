@@ -29,7 +29,7 @@ public class SellerSignUpController {
 	@RequestMapping("/sellerSignUp")
 	public String RegistrationForm() {
 		//System.out.println("seller SignUp form");
-		return "sellerSignUp";
+		return "seller/sellerSignUp";
 	}
 	
 	
@@ -51,11 +51,11 @@ public class SellerSignUpController {
 			
 			
 			
-			String uploadDir="src/main/resources/static/documents/seller";
-			//String uploadDir ="src/main/webapp/images/seller";
+			//String uploadDir="src/main/resources/static/documents/seller";
+			String uploadDir ="src/main/webapp/uplodedDocImg/DocumentSeller";
 			
 			FileUploadUtils.saveFile(uploadDir, filename, multipartFile);
-			s.setDocumentUrl("/documents/seller/"+filename);
+			s.setDocumentUrl("/uplodedDocImg/DocumentSeller/"+filename);
 			sellerService.addSeller(s);
 			
 		
@@ -63,6 +63,30 @@ public class SellerSignUpController {
 			System.out.println("seller Registration");
 			
 		}
-		return "sellerSignUp";
+		return "seller/sellerSignUp";
 	}
+	
+	
+	
+	
+	@PostMapping("/sellerlogin")
+	public String sellerLogin(@RequestParam("uemail")String uname,@RequestParam("upass")String upass) {
+		
+		
+		if(uname==upass) {
+			
+			return "sellerIndex";
+		}
+		
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

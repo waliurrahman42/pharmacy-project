@@ -64,10 +64,44 @@ public class MedicineMaster {
 
 	private String medicineUrl2;
 
+	
+	
+
+	@OneToMany(mappedBy = "medicineMaster" ,cascade = CascadeType.ALL)
+	private List<SellerMedicneManager> sellerMedicneManager;
+	
+	
+	
+	
+	
+	
+	
+	/////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public int getMedicineId() {
 		return medicineId;
 	}
 
+	public List<SellerMedicneManager> getSellerMedicneManager() {                                            //////////////////
+		return sellerMedicneManager;
+	}
+
+	public void setSellerMedicneManager(List<SellerMedicneManager> sellerMedicneManager) {
+		this.sellerMedicneManager = sellerMedicneManager;
+	}
+																										/////////////////////
 	public void setMedicineId(int medicineId) {
 		this.medicineId = medicineId;
 	}
@@ -200,6 +234,29 @@ public class MedicineMaster {
 		this.medicineUrl2 = medicineUrl2;
 	}
 
+	@Override
+	public String toString() {
+		return "MedicineMaster [medicineId=" + medicineId + ", medicineName=" + medicineName + ", prescription="
+				+ prescription + ", typeOfSell=" + typeOfSell + ", salt=" + salt + ", mrp=" + mrp + ", uses=" + uses
+				+ ", alternateMedicines=" + alternateMedicines + ", sideEffects=" + sideEffects + ", howToUse="
+				+ howToUse + ", chemicalClass=" + chemicalClass + ", therapeuticClass=" + therapeuticClass
+				+ ", manufacture=" + manufacture + ", habitForming=" + habitForming + ", actionClass=" + actionClass
+				+ ", medicineUrl1=" + medicineUrl1 + ", medicineUrl2=" + medicineUrl2 + ", sellerMedicneManager="
+				+ sellerMedicneManager + "]";
+	}
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

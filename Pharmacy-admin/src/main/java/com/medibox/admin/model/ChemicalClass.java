@@ -51,4 +51,19 @@ public class ChemicalClass {
 		this.chemicalName = chemicalName;
 	}
 
+
+	@Override
+	public String toString() {
+		return "ChemicalClass [chemicalId=" + chemicalId + ", chemicalName=" + chemicalName + ", medicineMaster="
+				+ medicineMaster + "]";
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 }
