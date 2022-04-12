@@ -39,12 +39,19 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 		return sellerMedicneManagerReporository.findBySellerMedicneManager(SellerMediManagerId);
 	}
 
+	
+	
+	
 	@Override
 	public void deleteSellerMedicneManager(SellerMedicneManager sellerMedicneManager) {
-		
 		sellerMedicneManagerReporository.delete(sellerMedicneManager);
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public void editSellerMedicneManager(SellerMedicneManager sellerMedicneManager) {
 		
@@ -58,6 +65,7 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 		return sellerMedicneManagerReporository.findBySellerId(sellerId);
 	}
 
+	
 	@Override
 	public List<SellerMedicneManager> findByMedicneId(Integer MedicneId) {
 		// TODO Auto-generated method stub
@@ -65,11 +73,21 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 	}
 
 	
+	
+	
+	
+	//finding detalis of a single medicine where sellerId and medicineId matched
 	public SellerMedicneManager findMedicineWithSeller(SellerMedicneManager sellerMedicneManager) {
 		int mediId=sellerMedicneManager.getMedicineMaster().getMedicineId();
 		int	sellerId=sellerMedicneManager.getSeller().getSellerId();
 		
 		return sellerMedicneManagerReporository.findMedicineIdWithSellerId(mediId, sellerId);
+	}
+	
+	
+	@Override
+	public SellerMedicneManager findMediMgrIDWithSellerId(Integer mMid,Integer sId ) {
+		return sellerMedicneManagerReporository.findMediMgrIDWithSellerId(mMid, sId);
 	}
 
 }

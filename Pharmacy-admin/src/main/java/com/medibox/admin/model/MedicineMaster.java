@@ -51,7 +51,6 @@ public class MedicineMaster {
 	private ManufactureMaster manufacture;
 	
 	
-	
 	@Column(nullable = false , length = 1000)
 	private String habitForming;
 
@@ -70,6 +69,8 @@ public class MedicineMaster {
 	@OneToMany(mappedBy = "medicineMaster" ,cascade = CascadeType.ALL)
 	private List<SellerMedicneManager> sellerMedicneManager;
 	
+	@OneToMany(mappedBy = "medicineMaster" ,cascade = CascadeType.ALL)
+	private List<OrderDetails> orderDetails;
 	
 	
 	
@@ -92,6 +93,14 @@ public class MedicineMaster {
 	
 	public int getMedicineId() {
 		return medicineId;
+	}
+
+	public List<OrderDetails> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetails> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
 	public List<SellerMedicneManager> getSellerMedicneManager() {                                            //////////////////

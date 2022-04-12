@@ -28,7 +28,7 @@ public class MyController {
 		
 	}
 	
-	@RequestMapping("/")
+	@RequestMapping("/admin")
 	public String index() {
 		System.out.println("home is excuted");
 		return "admin/index";
@@ -36,7 +36,7 @@ public class MyController {
 	
 	
 	
-	@RequestMapping("/home")
+	@RequestMapping("/adminhome")
 	public String home() {
 		System.out.println("home is excuted");
 		return "admin/index";

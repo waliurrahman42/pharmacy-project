@@ -29,6 +29,4 @@ public class SellerHomeController {
 		
 		return "seller/MedicineList";	
 	}
-
-
 }

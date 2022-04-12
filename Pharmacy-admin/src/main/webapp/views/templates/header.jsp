@@ -32,8 +32,8 @@
     <!-- nav section -->
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark p-0">
       <div class="container">
-      	<a href="/home" class="navbar-brand bg-white my-1"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
-        <a href="/home" class="navbar-brand">AdminPannel</a>
+      	<a href="/admin" class="navbar-brand bg-white my-1"> <img src="/image/logo.png" alt="@logo" height="40px" width="auto"> </a>
+        <a href="/admin" class="navbar-brand">AdminPannel</a>
         <button
           class="navbar-toggler"
           data-toggle="collapse"
@@ -44,7 +44,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav">
             <li class="nav-item px-2">
-              <a href="/home" class="nav-link active">Dashboard</a>
+              <a href="/admin" class="nav-link active">Dashboard</a>
             </li>
             <li class="nav-item px-2">
               <a href="/seller" class="nav-link">Seller</a>

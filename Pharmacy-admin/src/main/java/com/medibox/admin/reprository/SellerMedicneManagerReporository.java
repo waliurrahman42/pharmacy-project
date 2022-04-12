@@ -24,6 +24,9 @@ public interface SellerMedicneManagerReporository extends JpaRepository<SellerMe
 	
 	@Query("select u from SellerMedicneManager u where u.medicineMaster.medicineId=?1 and u.seller.sellerId=?2")
 	SellerMedicneManager findMedicineIdWithSellerId(int mediId, int sellerId);
+
+	@Query("select u from SellerMedicneManager u where u.sellerMediManagerId=?1 and u.seller.sellerId=?2")
+	SellerMedicneManager findMediMgrIDWithSellerId(Integer mMid, Integer sId);
 	
 	
 	

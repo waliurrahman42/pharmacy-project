@@ -74,6 +74,7 @@ public class SellerMedicineManagerController {
 	
 	
 	
+	
 	//adding quantity and updating
 	@PostMapping("/addQuant")
 	public String addmedicineQuantity(SellerMedicneManager smManager ,Model m,HttpServletRequest request) {
@@ -88,6 +89,38 @@ public class SellerMedicineManagerController {
 		return  "redirect:/sellerlogin";
 	}
 	
+	
+	
+	
+	
+	
+	//update  medicine from manager
+	@GetMapping("/updateMfrmLst")
+	public String updatemedicineQuantity(@RequestParam("medId")Integer mid,Model m,HttpServletRequest request) {
+		
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+			m.addAttribute("updateMedicine",sellerMedMngrService.findMediMgrIDWithSellerId(mid, seller.getSellerId()));		
+			return "seller/sellerMedicineManager";	
+		}
+		return  "redirect:/sellerlogin";
+	}
+	
+	
+	//delete  medicine from manager
+	@GetMapping("/deleteMfrmLst")
+	public String deletemedicineQuantity(@RequestParam("medId")Integer mid ,Model m,HttpServletRequest request) {
+			
+		HttpSession session=request.getSession();
+		Seller seller=(Seller) session.getAttribute("logedinUser");
+		if(seller!=null) {
+			SellerMedicneManager smManager=sellerMedMngrService.findMediMgrIDWithSellerId(mid, seller.getSellerId());		
+			sellerMedMngrService.deleteSellerMedicneManager(smManager);
+			return "seller/sellerMedicineManager";	
+		}
+		return  "redirect:/sellerlogin";
+	}
 	
 	
 	

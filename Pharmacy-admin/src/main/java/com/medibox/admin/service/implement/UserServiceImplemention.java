@@ -58,4 +58,28 @@ public class UserServiceImplemention implements UserService  {
 		return userRepository.sellerCount();
 	}
 
+
+
+	@Override
+	public User findByUserEmailAndPassword(String email, String pass) {
+		// TODO Auto-generated method stub
+		return userRepository.findByUserEmailAndPassword(email,pass);
+	}
+
+
+
+	@Override
+	public User findByUserEmail(String email) {
+		
+		return userRepository.findByUserEmail(email);
+	}
+
+
+
+	@Override
+	public User findByUserMobile(String mobile) {
+		// TODO Auto-generated method stub
+		return userRepository.findByUserMobile(mobile);
+	}
+
 }

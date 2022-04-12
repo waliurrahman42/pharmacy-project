@@ -13,4 +13,13 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 	@Query("select count(u) from User u ")
 	int sellerCount();
+
+	@Query("select u from User u where u.emailId=?1  and u.password=?2")
+	User findByUserEmailAndPassword(String email, String pass);
+
+	@Query("select u from User u where u.emailId=?1")
+	User findByUserEmail(String email);
+
+	@Query("select u from User u where u.contactNumber=?1")
+	User findByUserMobile(String mobile);
 }

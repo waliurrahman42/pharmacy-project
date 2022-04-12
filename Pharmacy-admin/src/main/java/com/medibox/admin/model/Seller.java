@@ -52,127 +52,143 @@ public class Seller {
 	private List<SellerMedicneManager> sellerMedicneManager;
 	
 	
-	
-	
-	
-	
-	
-	
-	
+	@OneToMany(mappedBy = "seller" ,cascade = CascadeType.ALL)
+	private List<OrderMaster> orderMaster;
+
+
 	
 	public int getSellerId() {
 		return sellerId;
 	}
 
+
 	public void setSellerId(int sellerId) {
 		this.sellerId = sellerId;
 	}
 
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public int getStatus() {
-		return status;
-	}
-
-	public void setStatus(int status) {
-		this.status = status;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public String getShopeRegNo() {
-		return shopeRegNo;
-	}
-
-	public void setShopeRegNo(String shopeRegNo) {
-		this.shopeRegNo = shopeRegNo;
-	}
-
-	public String getShopContactNo() {
-		return shopContactNo;
-	}
-
-	public void setShopContactNo(String shopContactNo) {
-		this.shopContactNo = shopContactNo;
-	}
-
-	public String getShopAddress() {
-		return shopAddress;
-	}
-
-	public void setShopAddress(String shopAddress) {
-		this.shopAddress = shopAddress;
-	}
-
-	public int getShopPincode() {
-		return shopPincode;
-	}
-
-	public void setShopPincode(int shopPincode) {
-		this.shopPincode = shopPincode;
-	}
-
-	public String getDocumentUrl() {
-		return documentUrl;
-	}
-
-	public void setDocumentUrl(String documentUrl) {
-		this.documentUrl = documentUrl;
-	}
 
 	public String getFullName() {
 		return fullName;
 	}
 
+
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-////////////////////////////////////////
+
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+
+	public int getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+
+	public String getShopName() {
+		return shopName;
+	}
+
+
+	public void setShopName(String shopName) {
+		this.shopName = shopName;
+	}
+
+
+	public String getShopeRegNo() {
+		return shopeRegNo;
+	}
+
+
+	public void setShopeRegNo(String shopeRegNo) {
+		this.shopeRegNo = shopeRegNo;
+	}
+
+
+	public String getShopContactNo() {
+		return shopContactNo;
+	}
+
+
+	public void setShopContactNo(String shopContactNo) {
+		this.shopContactNo = shopContactNo;
+	}
+
+
+	public String getShopAddress() {
+		return shopAddress;
+	}
+
+
+	public void setShopAddress(String shopAddress) {
+		this.shopAddress = shopAddress;
+	}
+
+
+	public int getShopPincode() {
+		return shopPincode;
+	}
+
+
+	public void setShopPincode(int shopPincode) {
+		this.shopPincode = shopPincode;
+	}
+
+
+	public String getDocumentUrl() {
+		return documentUrl;
+	}
+
+
+	public void setDocumentUrl(String documentUrl) {
+		this.documentUrl = documentUrl;
+	}
+
+
 	public List<SellerMedicneManager> getSellerMedicneManager() {
 		return sellerMedicneManager;
 	}
+
 
 	public void setSellerMedicneManager(List<SellerMedicneManager> sellerMedicneManager) {
 		this.sellerMedicneManager = sellerMedicneManager;
 	}
 
-	
 
-	
-	
-	///////////////////////////
-	
-	
-	
-
-	
-	@Override
-	public String toString() {
-		return "Seller [sellerId=" + sellerId + ", fullName=" + fullName + ", emailId=" + emailId + ", password="
-				+ password + ", status=" + status + ", shopName=" + shopName + ", shopeRegNo=" + shopeRegNo
-				+ ", shopContactNo=" + shopContactNo + ", shopAddress=" + shopAddress + ", shopPincode=" + shopPincode
-				+ ", documentUrl=" + documentUrl + ", sellerMedicneManager=" + sellerMedicneManager + "]";
+	public List<OrderMaster> getOrderMaster() {
+		return orderMaster;
 	}
+
+
+	public void setOrderMaster(List<OrderMaster> orderMaster) {
+		this.orderMaster = orderMaster;
+	}
+	
+	
+	
+	
 	
 	
 	

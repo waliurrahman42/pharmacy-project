@@ -125,7 +125,7 @@ public class UserAdminController {
 	
 	
 	
-	//deletin user address
+	//deleting user address
 	@GetMapping("/deleteAddress")
 	public String deleteUAddress(@RequestParam("userAId") Integer uid, Model m) {
 		UserAddress userAddress=uAddService.findByUserAddressId(uid);

@@ -57,7 +57,6 @@ public class SellerSignUpController {
 		if (existingseller==null) {
 			
 			String filename=StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			
 			//String uploadDir="src/main/resources/static/documents/seller";
 			String uploadDir ="src/main/webapp/uplodedDocImg/DocumentSeller";
 			
@@ -86,7 +85,9 @@ public class SellerSignUpController {
 	@PostMapping("/sellerlogin")
 	public String sellerLogin(@RequestParam("uemail")String uname,@RequestParam("upass")String upass,
 							HttpServletRequest request	,Model m) {
+		
 		Seller seller=sellerService.findBySellerEmailAndPasswordStatusIsActive(uname, upass);
+		
 		if(seller!=null) {
 			if(seller.getStatus()==0) {
 				m.addAttribute("notactive", true);
@@ -105,7 +106,7 @@ public class SellerSignUpController {
 	
 	
 	
-	//logout sller
+	//logout seller
 	@RequestMapping("/logout")
 	public String Logoutseller(HttpServletRequest request) {
 		HttpSession session=request.getSession();

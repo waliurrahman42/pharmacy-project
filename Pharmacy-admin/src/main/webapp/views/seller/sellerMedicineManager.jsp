@@ -64,6 +64,9 @@ pageEncoding="ISO-8859-1"%>
                   <label for="Name">Medicine Name</label>
                   		<select class="form-control" name="medicineMaster"  id="MName" onchange="MedecineData()">
 				<c:if test="${singleMedicine!=null }"> <option value="${singleMedicine.medicineId}">${singleMedicine.medicineName}</option> </c:if>
+				<c:if test="${updateMedicine!=null }"> <option value="${updateMedicine.medicineMaster.medicineId}">${updateMedicine.medicineMaster.medicineName}</option> </c:if>
+					          		          	
+					          	
 					          	<c:if test="${singleMedicine==null }">
 					          		<option value="-1">---Select Medicine--</option>
 						          <c:forEach var="item" items="${listOfMedicine}">
@@ -80,6 +83,7 @@ pageEncoding="ISO-8859-1"%>
                     type="number"
                     class="form-control"
                     name="qunatity"
+                    value="${updateMedicine.qunatity }"
                     id="Quantity"
                     placeholder="10"
                   />
@@ -92,6 +96,7 @@ pageEncoding="ISO-8859-1"%>
                     type="number"
                     class="form-control"
                     name="sellerDiscount"
+                    value="${updateMedicine.sellerDiscount}"
                     id="Quantity"
                     placeholder="5%"
                   />
@@ -106,7 +111,8 @@ pageEncoding="ISO-8859-1"%>
           </thead>
         </table>
    </form>
-    </section>
+  
+   </section>
 
     <!-- list of medicine  -->
 
@@ -125,11 +131,11 @@ pageEncoding="ISO-8859-1"%>
             <th scope="col">Medicine Name</th>
             <th scope="col">Salt</th>
             <th scope="col">type Of Sell</th>
-            <th scope="col">your extra Discount</th>
             <th scope="col">MRP</th>
             <th scope="col">MediBox Selling Price</th>
-            <th scope="col">Quantity</th>
             <th scope="col">Seller Shop Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">your extra Discount</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -139,12 +145,15 @@ pageEncoding="ISO-8859-1"%>
               <th scope="row">${listM.medicineMaster.medicineName}</th>
               <td>${listM.medicineMaster.salt}</td>
               <td>${listM.medicineMaster.typeOfSell}</td>
-              <td>${listM.sellerDiscount}</td>
+              
               <td>${listM.medicineMaster.mrp}</td>
               <td>${(listM.medicineMaster.mrp)-5-(listM.sellerDiscount)}</td>
-              <td>${listM.qunatity}</td>
-              <th scope="row">${listM.seller.shopName}</th>
-              <td><a href="#">Edit</a></td>
+              <th>${listM.seller.shopName}</th>
+              <td>${listM.qunatity}</td> 
+              <td>${listM.sellerDiscount}</td> 
+	          <td><a class="btn btn-success float-left" href="/updateMfrmLst?medId=${listM.sellerMediManagerId}">Update</a>  
+	              <a class="btn btn-danger float-left" href="/deleteMfrmLst?medId=${listM.sellerMediManagerId}">Delete</a>  </td>  
+                          
             </tr>
           </c:forEach>
         </tbody>

@@ -19,6 +19,6 @@ public interface SellerMedicneManagerService {
 	
 	List<SellerMedicneManager> findByMedicneId(Integer sellerId);
 	
-	
+	SellerMedicneManager findMediMgrIDWithSellerId(Integer mMid,Integer sId );
 
 }

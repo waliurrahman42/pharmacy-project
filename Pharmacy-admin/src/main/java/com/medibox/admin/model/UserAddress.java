@@ -1,11 +1,15 @@
 package com.medibox.admin.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class UserAddress {
@@ -19,6 +23,11 @@ public class UserAddress {
 		
 		@ManyToOne
 		private User user;
+		
+
+		@OneToMany(mappedBy = "userAddress" ,cascade = CascadeType.ALL)
+		private List<OrderMaster> orderMasters;
+		
 		
 		@Column(nullable = false)
 		private String mobileNumber;
@@ -109,6 +118,15 @@ public class UserAddress {
 		public void setPincode(int pincode) {
 			this.pincode = pincode;
 		}
+
+		public List<OrderMaster> getOrderMasters() {
+			return orderMasters;
+		}
+
+		public void setOrderMasters(List<OrderMaster> orderMasters) {
+			this.orderMasters = orderMasters;
+		}
+		
 		
 		
 		
