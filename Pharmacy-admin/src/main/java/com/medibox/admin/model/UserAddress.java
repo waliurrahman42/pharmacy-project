@@ -126,6 +126,14 @@ public class UserAddress {
 		public void setOrderMasters(List<OrderMaster> orderMasters) {
 			this.orderMasters = orderMasters;
 		}
+
+		@Override
+		public String toString() {
+			return "UserAddress [userAddressId=" + userAddressId + ", name=" + name + ", user=" + user
+					+ ", orderMasters=" + orderMasters + ", mobileNumber=" + mobileNumber + ", localityAreaStreet="
+					+ localityAreaStreet + ", landmark=" + landmark + ", city=" + city + ", state=" + state
+					+ ", pincode=" + pincode + "]";
+		}
 		
 		
 		

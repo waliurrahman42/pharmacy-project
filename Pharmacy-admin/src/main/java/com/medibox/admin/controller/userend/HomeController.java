@@ -94,7 +94,7 @@ public class HomeController {
 		model.addAttribute("medicine", medicine);
 		System.out.println(medicine.getMedicineName());
 		model.addAttribute("alternateMedicine", searchService.findAlternateMedicines(medicine.getSalt()));
-		return "Product";
+		return "users/Product";
 	}
 
 	@RequestMapping("/cart")

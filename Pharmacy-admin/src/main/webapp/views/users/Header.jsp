@@ -54,12 +54,12 @@
 			<button class="btn dropdown-toggle float-lg-right float-md-right" type="button" data-toggle="dropdown"
 				aria-expanded="false">
 				 <i class="fas fa-user"><c:if test="${logedInUser==null}">Account</c:if>${logedInUser.fullName} </i>  
-				<%--	<i class="fas fa-user">${logedInUser.fullName} </i>--%>
+				
 			</button>
 			<ul class="dropdown-menu">
 				<li><c:if test="${logedInUser==null}"><a class="dropdown-item"  href="/userloginpage">LOGIN</a></c:if></li>
 				<li><c:if test="${logedInUser!=null}"><a class="dropdown-item" href="/profile">Profile</a></c:if></li>
-				<!-- <li><a href="/logoutuser">logout</a></li> -->
+				
 
 				<li>
 					<hr class="dropdown-divider" />
@@ -73,7 +73,7 @@
 		<!-- cart -->
 		<div class="container-fluid col-1 mt-3">
 			<form>
-				<button formaction="/cart" class="btn" onclick="updateCart();"><i class="fas fa-cart-plus"></i>
+				<button formaction="/cart" class="btn  stretched-link" onclick="updateCart();"><i class="fas fa-cart-plus"></i>
 					<span id="cart-items"></span>
 				</button>
 			</form>
@@ -143,16 +143,20 @@
 					<!-- accountSec after size decrease -->
 					<li class="nav-item" id="accountSec">
 						<button class="btn dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
-							<i class="fas fa-user"></i>ACCOUNT
+							 <i class="fas fa-user"><c:if test="${logedInUser==null}">Account</c:if>${logedInUser.fullName} </i>  
+							
 						</button>
 						<ul class="dropdown-menu">
-							<li><a href="/userloginpage">LOGIN</a></li>
-							<li><a href="/UserSignup">SIGNUP</a></li>
-
+							<li><c:if test="${logedInUser==null}"><a class="dropdown-item"  href="/userloginpage">LOGIN</a></c:if></li>
+							<li><c:if test="${logedInUser!=null}"><a class="dropdown-item" href="/profile">Profile</a></c:if></li>
+							
+			
 							<li>
 								<hr class="dropdown-divider" />
 							</li>
-							<li><a class="dropdown-item" href="/sellerlogin">SELLER</a></li>
+							<li><c:if test="${logedInUser==null}"><a  class="dropdown-item" href="/sellerlogin">SELLER</a></c:if>
+								<c:if test="${logedInUser!=null}"><a class="dropdown-item" href="/logoutuser">Logout</a></c:if>					
+							</li>
 						</ul>
 					</li>
 				</ul>

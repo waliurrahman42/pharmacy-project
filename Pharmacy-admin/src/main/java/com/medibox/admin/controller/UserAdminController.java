@@ -62,6 +62,7 @@ public class UserAdminController {
 			m.addAttribute("currentuser", userService.findByUserId(uAdd.getUser().getUserId()));
 			return "admin/UserDetails";
 		}
+		
 		m.addAttribute("currentuser", userService.findByUserId(uAdd.getUser().getUserId()));
 		return "admin/UserDetails";
 	}
@@ -114,7 +115,7 @@ public class UserAdminController {
 		return "admin/UserDetails";
 	}
 	
-	//updating user  
+	//updating useraddress  
 	@PostMapping("/updateAddress")
 	public String updateUserAddress(UserAddress uAdd, Model m) {
 		System.out.println("update UserAddress");

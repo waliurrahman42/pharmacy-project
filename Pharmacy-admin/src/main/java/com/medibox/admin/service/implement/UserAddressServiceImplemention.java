@@ -2,6 +2,7 @@ package com.medibox.admin.service.implement;
 
 import java.util.List;
 
+import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,9 @@ public class UserAddressServiceImplemention implements UserAddressService{
 	
 	@Override
 	public UserAddress addUserAddress(UserAddress user) {
-		if(user != null) {
+		
 			return uAddReprository.save(user);
-		}
-		return null;
+		
 	}
 
 	@Override
@@ -39,9 +39,9 @@ public class UserAddressServiceImplemention implements UserAddressService{
 	}
 
 	@Override
-	public void deleteUserAddress(UserAddress user) {
-		uAddReprository.delete(user);
-		
+	public void deleteUserAddress(UserAddress userADD) {
+		uAddReprository.delete( userADD);
+		System.out.println(" implem Delete");
 	}
 
 	@Override

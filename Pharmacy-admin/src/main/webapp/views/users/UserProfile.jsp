@@ -34,6 +34,7 @@
  <!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
 
 
+
     <!-- Profile Page -->
     <div class="container mt-3">
         <div class="row gutters">
@@ -45,18 +46,18 @@
                                 <div class="user-avatar">
                                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="@profiepic">
                                 </div>
-                                <h5 class="user-name">${logedInUser.fullName}</h5>
-                                <h6 class="user-email">${logedInUser.emailId}</h6>
-                                <h6 class="user-contactno">${logedInUser.contactNumber}</h6>
+                                <h5 class="user-name">${userdetails.fullName}</h5>
+                                <h6 class="user-email">${userdetails.emailId}</h6>
+                                <h6 class="user-contactno">${userdetails.contactNumber}</h6>
                             </div>
                             <hr>
                             <div class="manage-address">
-                                <button type="button " data-toggle="collapse" data-target="#address-section">Manage
+                                <button type="button" data-toggle="collapse" data-target="#address-section">Manage
                                     Address</button>
                             </div>
                             <br>
                             <div class="logout">
-                                <button class="btn btn-danger">logout</button>
+                                <button>logout</button>
                             </div>
                         </div>
                     </div>
@@ -75,20 +76,20 @@
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="fullName">Full Name</label>
-                                    <input type="text" value="${logedInUser.fullName}" class="form-control" id="fullName" placeholder="Full Name"
+                                    <input type="text" value="${userdetails.fullName}" class="form-control" id="fullName" placeholder="Full Name"
                                         disabled>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="eMail">Email-Id</label>
-                                    <input type="email" value="${logedInUser.emailId}"   class="form-control" id="eMail" placeholder="Email ID" disabled>
+                                    <input type="email" value="${userdetails.emailId}"   class="form-control" id="eMail" placeholder="Email ID" disabled>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Contact Number</label>
-                                    <input type="text"  value="${logedInUser.contactNumber}"  class="form-control" id="phone" placeholder="Contact Number"
+                                    <input type="text"  value="${userdetails.contactNumber}"  class="form-control" id="phone" placeholder="Contact Number"
                                         disabled>
                                 </div>
                             </div>
@@ -106,11 +107,11 @@
 	                        <div class="<c:if test="${!editAddForm}">collapse</c:if>" id="input-address-section">
 	                       
 	                       
-                                <form  action="addaddress"  method="post" >
+                                <form  action="saveUserAdd"  method="post" >
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     	
                                     	<!-- geting currntuserid for insrting -->
-                                 <%--   <input type="text" name="user"  value="${logedInUser.userId}"    class="form-control" hidden> --%>
+                                  <%--  <input type="text" name="user"  value="${userdetails.userId}"    class="form-control" hidden> --%>
                                        
                                   <!-- geting currntuseraddressid for insrting -->   
                                    <c:if test="${editAddForm}">
@@ -166,7 +167,7 @@
 	                                        	<input type="submit"  class="save-address-btn btn btn-primary" value="submit">
 	                                    	</c:if>
 	                                    	<c:if test="${editAddForm}">
-	                                    		<button type="submit" formaction="/updateAddress"class="save-address-btn btn btn-primary">Update</button>
+	                                    		<button type="submit" formaction="/updateUserAddress"class="save-address-btn btn btn-primary">Update</button>
                                     		</c:if>
                                     </div>
                                 </form>
@@ -177,7 +178,7 @@
                         
                         
                         
-							<c:forEach var="address" items="${logedInUser.userAddresses }">
+							<c:forEach var="address" items="${userdetails.userAddresses }">
                         		<div class="user-address-section mt-3 ml-3 mb-3 mr-3 p-3">
                           	
 		                            <div class="left">
@@ -199,21 +200,9 @@
 		                             
 		                             
 		                             
-		                             	<%--  <form  method="post" action="editAddress/${address.userAddressId}"  >
-			                                <button type="submit" class="edit-address">
-			                                    <i class='fas fa-pencil-alt'></i>&nbsp;
-			                                </button>
-		                               	</form> 
-		                                
-		                                <form method="post" action="deleteAddress/${address.userAddressId}"  >
-			                                <button class="delete-address">
-			                                    <i class="fas fa-trash-alt"></i>
-			                               </button>
-		                                </form>
-		                                 --%>
 		                                 
-		                   <a class="btn  " href="/editAddress?userAId=${address.userAddressId}	"><i class='fas fa-pencil-alt'></i>&nbsp;</a>
-					       <a class="btn  " href="/deleteAddress?userAId=${address.userAddressId}	"> <i class="fas fa-trash-alt"></i></a>
+		                   <a class="btn btn-success " href="/editUserAddress?userAId=${address.userAddressId}	"><i class='fas fa-pencil-alt'></i>&nbsp;</a>
+					       <a class="btn btn-danger " href="/deleteUserAddress?userAId=${address.userAddressId}	"> <i class="fas fa-trash-alt"></i></a>
 		                            </div>
                             
                         	</div>
@@ -223,12 +212,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
 
 
 

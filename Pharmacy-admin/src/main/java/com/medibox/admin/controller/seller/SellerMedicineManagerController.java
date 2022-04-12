@@ -31,7 +31,7 @@ public class SellerMedicineManagerController {
 	@ModelAttribute
 	public void commonDataSendforModal(Model m,HttpServletRequest request) {
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 			m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
 			m.addAttribute("listOfMedicine",medicineMasterImp.listOfMedicineMaster());
@@ -46,7 +46,7 @@ public class SellerMedicineManagerController {
 	public String medicineManager(Model m,HttpServletRequest request) {
 		
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 		//	m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
 		//	m.addAttribute("listOfMedicine",medicineMasterImp.listOfMedicineMaster());
@@ -62,7 +62,7 @@ public class SellerMedicineManagerController {
 	public String medicineManager(@RequestParam("mid")Integer mid,Model m,HttpServletRequest request) {
 		
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 			m.addAttribute("singleMedicine",medicineMasterImp.findByMedicineId(mid));
 		//	m.addAttribute("listOfSellerMedicine",sellerMedMngrService.findBySellerId(seller.getSellerId()));
@@ -80,7 +80,7 @@ public class SellerMedicineManagerController {
 	public String addmedicineQuantity(SellerMedicneManager smManager ,Model m,HttpServletRequest request) {
 		
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 			smManager.setSeller(seller);
 			sellerMedMngrService.addSellerMedicneManager(smManager);
@@ -99,7 +99,7 @@ public class SellerMedicineManagerController {
 	public String updatemedicineQuantity(@RequestParam("medId")Integer mid,Model m,HttpServletRequest request) {
 		
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 			m.addAttribute("updateMedicine",sellerMedMngrService.findMediMgrIDWithSellerId(mid, seller.getSellerId()));		
 			return "seller/sellerMedicineManager";	
@@ -113,7 +113,7 @@ public class SellerMedicineManagerController {
 	public String deletemedicineQuantity(@RequestParam("medId")Integer mid ,Model m,HttpServletRequest request) {
 			
 		HttpSession session=request.getSession();
-		Seller seller=(Seller) session.getAttribute("logedinUser");
+		Seller seller=(Seller) session.getAttribute("logedinSeller");
 		if(seller!=null) {
 			SellerMedicneManager smManager=sellerMedMngrService.findMediMgrIDWithSellerId(mid, seller.getSellerId());		
 			sellerMedMngrService.deleteSellerMedicneManager(smManager);

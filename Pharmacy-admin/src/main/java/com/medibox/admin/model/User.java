@@ -32,7 +32,7 @@ public class User {
 	@Column(nullable = false)
 	private String password;
 
-	@OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "user" ,cascade = CascadeType.ALL)
 	private List<UserAddress> userAddresses;
 
 	

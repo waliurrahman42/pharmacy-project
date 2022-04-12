@@ -48,7 +48,7 @@ public class SellerSignUpController {
 //		return "sellerSignUp";
 //	}
 	
-	//signup
+	//signup -process
 	@PostMapping("/addSeller")
 	public String Registration(Seller s,@RequestParam("myfilesdoc")MultipartFile multipartFile,Model m) throws IOException{
 		
@@ -72,7 +72,7 @@ public class SellerSignUpController {
 	}
 	
 	
-	
+	//seller login page opening
 	@RequestMapping("/sellerlogin")
 	public String loginpage() {
 		System.out.println("seller login");
@@ -81,7 +81,7 @@ public class SellerSignUpController {
 	
 	
 	
-	
+	//sellerlogin
 	@PostMapping("/sellerlogin")
 	public String sellerLogin(@RequestParam("uemail")String uname,@RequestParam("upass")String upass,
 							HttpServletRequest request	,Model m) {
@@ -95,7 +95,7 @@ public class SellerSignUpController {
 			}
 			else {
 				HttpSession session=request.getSession();
-				session.setAttribute("logedinUser", seller);
+				session.setAttribute("logedinSeller", seller);
 				return "seller/sellerIndex";
 			}
 		}
