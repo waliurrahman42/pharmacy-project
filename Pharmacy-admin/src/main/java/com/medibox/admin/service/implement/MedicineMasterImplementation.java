@@ -3,6 +3,8 @@ package com.medibox.admin.service.implement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.medibox.admin.model.MedicineMaster;
@@ -59,6 +61,12 @@ public class MedicineMasterImplementation implements MedicineMasterService{
 	public List<MedicineMaster> findMedicineByNameLike(String str) {
 		
 		return medicineMasterRepro.findByMedicineName(str);
+	}
+
+	@Override
+	public Page<MedicineMaster> listOfMedicineByPage(Pageable pageable) {
+		
+		return medicineMasterRepro.findMedicinebyPageable(pageable);
 	}
 	
 	

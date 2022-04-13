@@ -810,5 +810,50 @@ footer {
 
 /*================================================ user profile page end ================================================================ */
 
+/* =====================checkout page================================ */
+#myoderdetails{
+    border: 1px solid black;
+     margin-top: auto; margin-bottom: auto; 
+     margin-top: 74px;
+      background-color: #fff;
+}
+
+#order-details{
+    margin: 1% 1% 0 1%;
+    padding: 0;
+    border-top: 2px solid rgb(225, 17, 17);
+    margin-left: -14px;
+    background-color: #fff;
+    
+}
+
+#checkout-page .user-address-section{
+ 	border: 2px outset #acb7b8;
+	border-radius: 5px;
+	align-items: center;
+}
+		
+ 
+#myorderCheckoutpage-orderlist .orderlist-details{	
+	border-radius: 5px;
+}	
 
 
+#myorderCheckoutpage-orderlist .deliver-btn{	
+	
+}	
+
+
+
+#checkout-page .user-address-section .address-radio{
+	
+
+}
+
+#checkout-page .user-address-section .addressprint{
+	
+	 
+}
+#checkout-page .user-address-section .edit-btn{
+	
+} 

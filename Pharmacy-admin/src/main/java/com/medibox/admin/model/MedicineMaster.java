@@ -21,7 +21,7 @@ public class MedicineMaster {
 	private String typeOfSell;
 
 
-	@Column(nullable = false , length = 50)
+	@Column(nullable = false , length = 200)
 	private String salt;
 
 	@Column(nullable = false)
