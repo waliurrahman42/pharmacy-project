@@ -51,7 +51,7 @@
 						class="nav-link">MedicineMaster</a></li>
 					<li class="nav-item px-2"><a href="/Users" class="nav-link">Users</a>
 					</li>
-					<li class="nav-item px-2"><a href="/Order" class="nav-link">Order</a>
+					<li class="nav-item px-2"><a href="/OrderPage" class="nav-link">Order</a>
 					</li>
 				</ul>
 

@@ -88,7 +88,8 @@
 			<form>
 				<button formaction="/cart" class="btn  stretched-link"
 					onclick="updateCart();">
-					<i class="fas fa-cart-plus"></i> <span id="cart-items"   class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"         ></span>
+					<i class="fas fa-cart-plus"></i> <span id="cart-items"
+						class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
 				</button>
 			</form>
 		</div>
@@ -123,7 +124,8 @@
 					<div class="col-2 offset-4 justify-content-around" id="navcart">
 						<form>
 							<button formaction="/cart" class="btn" onclick="updateCart();">
-								<i class="fas fa-cart-plus"></i> <span id="mobile-cart-items" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"   ></span>
+								<i class="fas fa-cart-plus"></i> <span id="mobile-cart-items"
+									class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
 							</button>
 						</form>
 					</div>
@@ -161,7 +163,7 @@
 						role="button">About Us</a></li>
 					<li class="nav-item"><a href="/contactus" class="nav-link"
 						role="button"><i class="fa fa-address-book"></i>Contact Us</a></li>
-					
+
 					<!-- accountSec after size decrease -->
 					<li class="nav-item" id="accountSec">
 						<button class="btn dropdown-toggle" type="button"
@@ -176,8 +178,7 @@
 								</c:if></li>
 							<li><c:if test="${logedInUser!=null}">
 									<a class="dropdown-item" href="/profile">Profile</a>
-								</c:if>
-							</li>
+								</c:if></li>
 
 
 							<li>
@@ -187,8 +188,7 @@
 									<a class="dropdown-item" href="/sellerlogin">SELLER</a>
 								</c:if> <c:if test="${logedInUser!=null}">
 									<a class="dropdown-item" href="/logoutuser">Logout</a>
-								</c:if>
-							</li>
+								</c:if></li>
 						</ul>
 					</li>
 				</ul>

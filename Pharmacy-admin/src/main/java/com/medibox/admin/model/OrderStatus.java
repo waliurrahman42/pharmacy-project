@@ -17,9 +17,20 @@ public class OrderStatus {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long statusId;
 	
-	@Column()
-	private String statusType;
+	@Column(columnDefinition = "integer default 0") 
+	private int statusType;
 	
+	@Column(columnDefinition = "integer default 0") 
+	private int isCanceled;
+	
+	public int getCancel() {
+		return isCanceled;
+	}
+
+	public void setCancel(int isCanceled) {
+		this.isCanceled = isCanceled;
+	}
+
 	private String statusDescription;
 	
 	private int isActive;
@@ -35,11 +46,11 @@ public class OrderStatus {
 		this.statusId = statusId;
 	}
 
-	public String getStatusType() {
+	public int getStatusType() {
 		return statusType;
 	}
 
-	public void setStatusType(String statusType) {
+	public void setStatusType(int statusType) {
 		this.statusType = statusType;
 	}
 

@@ -51,4 +51,11 @@ public class MyController {
 		return "admin/settings";
 	}
 	
+	
+	@RequestMapping("/OrderPage")
+	public String Orderspage() {
+		System.out.println("order is excuted");
+		return "admin/Orders";
+	}
+	
 }
