@@ -1,22 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="ISO-8859-1" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Home</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-		integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
-	<link rel="stylesheet" href="css/mystyle.css" />
-	<script src="js/myscript.js"></script>
+<meta charset="ISO-8859-1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
+<script
+	src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+	integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="css/mystyle.css" />
+<script src="js/myscript.js"></script>
 </head>
 
 <body class="">
@@ -35,31 +41,32 @@
 			</ol>
 			<div class="carousel-inner">
 				<div class="carousel-item active sizeforimage">
-					<img class="d-block" src="./image/custompg.png" alt="First Slide" height="350px"
-						width="100% auto" />
+					<img class="d-block" src="./image/custompg.png" alt="First Slide"
+						height="350px" width="100% auto" />
 					<div class="carousel-caption d-none d-md-block">
 						<h3>Slide One</h3>
 						<p></p>
 					</div>
 				</div>
 				<div class="carousel-item sizeforimage">
-					<img class="d-block" src="./image/img2.jpg" alt="Second Slide" height="350px" width="100% auto" />
+					<img class="d-block" src="./image/img2.jpg" alt="Second Slide"
+						height="350px" width="100% auto" />
 					<div class="carousel-caption d-none d-md-block">
 						<h3>Slide Two</h3>
 						<p></p>
 					</div>
 				</div>
 				<div class="carousel-item sizeforimage">
-					<img class="d-block banerimg" src="./image/img3.jpg" alt="Third Slide" height="350px"
-						width="100% auto" />
+					<img class="d-block banerimg" src="./image/img3.jpg"
+						alt="Third Slide" height="350px" width="100% auto" />
 					<div class="carousel-caption d-none d-md-block">
 						<h3>Slide Three</h3>
 						<p></p>
 					</div>
 				</div>
 				<div class="carousel-item sizeforimage">
-					<img class="d-block banerimg" src="./image/img1.jpg" alt="four Slide" height="350px"
-						width="100% auto" />
+					<img class="d-block banerimg" src="./image/img1.jpg"
+						alt="four Slide" height="350px" width="100% auto" />
 					<div class="carousel-caption d-none d-md-block">
 						<h3>Slide four</h3>
 						<p></p>
@@ -70,9 +77,7 @@
 			<!-- CONTROLS -->
 			<a href="#slider4" class="carousel-control-prev" data-slide="prev">
 				<span class="carousel-control-prev-icon"></span>
-			</a>
-
-			<a href="#slider4" class="carousel-control-next" data-slide="next">
+			</a> <a href="#slider4" class="carousel-control-next" data-slide="next">
 				<span class="carousel-control-next-icon"></span>
 			</a>
 		</div>
@@ -83,9 +88,8 @@
 	<div class="container container-fluid" id="dummytext">
 		<div class="row">
 			<div class="">
-				<h1 class="text-primary text-center">
-					What Are You Looking for?????
-				</h1>
+				<h1 class="text-primary text-center">What Are You Looking
+					for?????</h1>
 			</div>
 		</div>
 	</div>
@@ -94,63 +98,63 @@
 	<section class="container-fluid pl-0">
 		<div class="row ml-0 categery-outter-div">
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/mask2.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/mask2.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/sen.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/sen.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/q__2.png" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/q__2.png" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/medwhit.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/medwhit.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/medinhadoran.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/medinhadoran.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/glasswater.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/glasswater.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/tablet.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/tablet.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="./categories.html" class="">
-					<img class="d-block" src="./image/imgpng/smp2.png" alt="First Slide" />
+				<a href="./categories.html" class=""> <img class="d-block"
+					src="./image/imgpng/smp2.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/fruits.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/fruits.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/salad.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/salad.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/q__3.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/q__3.png" alt="First Slide" />
 				</a>
 			</div>
 			<div class="bg-white float-left widthSet">
-				<a href="#" class="">
-					<img class="d-block" src="./image/imgpng/wloss.png" alt="First Slide" />
+				<a href="#" class=""> <img class="d-block"
+					src="./image/imgpng/wloss.png" alt="First Slide" />
 				</a>
 			</div>
 		</div>
@@ -163,12 +167,10 @@
 			<div class="row">
 				<div class="col">
 					<div class="info-header mb-5">
-						<h1 class="text-primary pb-3">
-							Hear what people are saying about us.
-						</h1>
-						<p class="lead">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
-							laborum numquam aperiam dolores a porro!
+						<h1 class="text-primary pb-3">Hear what people are saying
+							about us.</h1>
+						<p class="lead">Lorem ipsum dolor sit amet consectetur
+							adipisicing elit. Alias laborum numquam aperiam dolores a porro!
 						</p>
 					</div>
 				</div>
@@ -178,13 +180,12 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="card">
 						<div class="card-body">
-							<img src="./image/imgpng/prof1.png" alt="" class="img-fluid rounded-circle w-50 mb-3" />
+							<img src="./image/imgpng/prof1.png" alt=""
+								class="img-fluid rounded-circle w-50 mb-3" />
 							<h3>wali</h3>
 
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-								commodi nostrum, ab libero voluptas officia.
-							</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Sed commodi nostrum, ab libero voluptas officia.</p>
 						</div>
 					</div>
 				</div>
@@ -192,12 +193,11 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="card">
 						<div class="card-body">
-							<img src="./image/imgpng/prof1.png" alt="" class="img-fluid rounded-circle w-50 mb-3" />
+							<img src="./image/imgpng/prof1.png" alt=""
+								class="img-fluid rounded-circle w-50 mb-3" />
 							<h3>naiyer abdullah</h3>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-								commodi nostrum, ab libero voluptas officia.
-							</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Sed commodi nostrum, ab libero voluptas officia.</p>
 						</div>
 					</div>
 				</div>
@@ -205,13 +205,12 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="card">
 						<div class="card-body">
-							<img src="./image/imgpng/prof2.png" alt="" class="img-fluid rounded-circle w-50 mb-3" />
+							<img src="./image/imgpng/prof2.png" alt=""
+								class="img-fluid rounded-circle w-50 mb-3" />
 							<h3>addel saddam</h3>
 
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-								commodi nostrum, ab libero voluptas officia.
-							</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Sed commodi nostrum, ab libero voluptas officia.</p>
 						</div>
 					</div>
 				</div>
@@ -219,13 +218,12 @@
 				<div class="col-lg-3 col-md-6">
 					<div class="card">
 						<div class="card-body">
-							<img src="./image/imgpng/prof3.png" alt="" class="img-fluid rounded-circle w-50 mb-3" />
+							<img src="./image/imgpng/prof3.png" alt=""
+								class="img-fluid rounded-circle w-50 mb-3" />
 							<h3>Faraz</h3>
 
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-								commodi nostrum, ab libero voluptas officia.
-							</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+								Sed commodi nostrum, ab libero voluptas officia.</p>
 						</div>
 					</div>
 				</div>

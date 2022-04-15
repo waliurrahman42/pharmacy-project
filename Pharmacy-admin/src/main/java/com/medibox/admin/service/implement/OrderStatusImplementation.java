@@ -3,11 +3,12 @@ package com.medibox.admin.service.implement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.medibox.admin.model.OrderStatus;
 import com.medibox.admin.reprository.OrderStatusRepository;
 import com.medibox.admin.service.OrderStatusService;
-
+@Service
 public class OrderStatusImplementation implements OrderStatusService {
 
 	

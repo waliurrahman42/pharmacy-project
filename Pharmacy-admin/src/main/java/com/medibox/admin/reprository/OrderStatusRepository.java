@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.medibox.admin.model.ChemicalClass;
 import com.medibox.admin.model.OrderStatus;
 
-public interface OrderStatusRepository extends JpaRepository<OrderStatus, Long> {
+public interface OrderStatusRepository extends JpaRepository<OrderStatus, Integer> {
 
 	
 	@Query("select u from OrderStatus u where u.statusId=?1")

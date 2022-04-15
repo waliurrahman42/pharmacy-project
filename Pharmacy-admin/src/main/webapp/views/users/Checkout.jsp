@@ -1,5 +1,7 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -14,19 +16,17 @@
 	<section class="container  mt-3" id="checkout-page">
 
 		<div class="row  ">
-				
+
 			<action class="col-md-5  col-lg-5   col-12   address-div   mt-3 ">
-			<div>
-				
-			</div>
+			<div></div>
 			<br>
 
 			<div class="card h-80  " id="">
 				<div class=" ml-3 mr-3 mb-3 mt-3">
 					<button class="btn btn-outline-info" data-toggle="collapse"
 						data-target="#input-address-section">
-						 <i class="fas fa-shipping-fast">  Add new Address</i>
-					</button> 
+						<i class="fas fa-shipping-fast"> Add new Address</i>
+					</button>
 				</div>
 				<div class="<c:if test="${!editAddForm}">collapse</c:if> mx-5 "
 					id="input-address-section">
@@ -135,17 +135,19 @@
 					</div>
 				</c:forEach>
 			</div>
-			
-
-		</action>
 
 
+			</action>
 
 
 
 
-			<aside Id="myorderCheckoutpage-orderlist" class=" col-md-7  col-lg-7  col-12">
-				<div class="bg-white p-5 mt-5  orderlist-details" data-toggle="collapse" data-target="#order-details">
+
+
+			<aside Id="myorderCheckoutpage-orderlist"
+				class=" col-md-7  col-lg-7  col-12">
+				<div class="bg-white p-5 mt-5  orderlist-details"
+					data-toggle="collapse" data-target="#order-details">
 					<h3>Order List</h3>
 					<div class="row orderrow">
 						<div class="col-6">
@@ -154,9 +156,10 @@
 							</h6>
 							<h6 id="customer-name" style="display: inline;">Reciver Name</h6>
 							<p>
-							<i class="fas fa-shipping-fast"></i>Delivery Address: <span id="delivery-address">Lorem ipsum
-									dolor sit amet consectetur adipisicing elit. Aliquid ea harum
-									debitis, pariatur voluptatem illum!</span>
+								<i class="fas fa-shipping-fast"></i>Delivery Address: <span
+									id="delivery-address">Lorem ipsum dolor sit amet
+									consectetur adipisicing elit. Aliquid ea harum debitis,
+									pariatur voluptatem illum!</span>
 							</p>
 
 						</div>
@@ -175,57 +178,43 @@
 
 						</div>
 						<div class="row collapse" id="order-details">
-							<div class="container-fluid row ml-1 order-item">
-								<div class="col-6 col-md-6 p-2">
-									<h6 id="product-name">Product Name1</h6>
-									<p id="product-description">Product Description1</p>
-									<!-- <br>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic nulla fugiat eius corrupti
-									nostrum quasi esse optio provident quis nemo!</p> -->
+
+							<c:set var="count" value="1" scope="session" />
+
+							<c:forEach var="medicine" items='${sessionScope["arr"]}'>
+
+
+								<div class="container-fluid row ml-1 order-item">
+									<div class="col-6 col-md-6 p-2">
+										<h6 id="product-name">${count}.${medicine.medicineName}</h6>
+
+										<c:set var="count" value="${count+1}" scope="session" />
+
+										<p id="product-description">${medicine.typeOfSell}</p>
+										<p id="product-description">Salt&emsp;:${medicine.salt}</p>
+										<p id="product-description">${medicine.manufacture.manufactureName}</p>
+										<br>
+
+									</div>
+									<div class="col-4 offset-1 p-2">
+										<br>
+										<p>
+											MRP &emsp;&emsp;&nbsp; : <span class="${medicine.mrp}">&#x20b9;
+												1099</span>
+										</p>
+										<p>
+											Discount&emsp;: <span class="product-discount">&#x20b9;
+												100</span>
+										</p>
+										<hr>
+										<p>
+											Total Price&nbsp; : <span class="product-price">&#x20b9;
+												999</span>
+										</p>
+									</div>
 								</div>
-								<div class="col-4 offset-1 p-2">
-									<br>
-									<p>
-										MRP &emsp;&emsp;&nbsp; : <span class="product-mrp">&#x20b9;
-											1099</span>
-									</p>
-									<p>
-										Discount&emsp;: <span class="product-discount">&#x20b9;
-											100</span>
-									</p>
-									<hr>
-									<p>
-										Total Price&nbsp; : <span class="product-price">&#x20b9;
-											999</span>
-									</p>
-								</div>
-							</div>
-							<hr>
-							<div class="container-fluid row ml-1 order-item">
-								<div class="col-6 p-2">
-									<h6 id="product-name">Product Name2</h6>
-									<p id="product-description">Product Description2</p>
-									<!-- <br>
-								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic nulla fugiat eius corrupti
-									nostrum quasi esse optio provident quis nemo!</p> -->
-								</div>
-								<div class="col-4 offset-1 p-2">
-									<br>
-									<p>
-										MRP &emsp;&emsp;&nbsp; : <span class="product-mrp">&#x20b9;
-											1099</span>
-									</p>
-									<p>
-										Discount&emsp;: <span class="product-discount">&#x20b9;
-											100</span>
-									</p>
-									<hr>
-									<p>
-										Total Price&nbsp; : <span class="product-price">&#x20b9;
-											999</span>
-									</p>
-								</div>
-							</div>
+								<hr>
+							</c:forEach>
 							<div class="row ml-1">
 								<div class="col-12 p-2 seller-details">
 									<span id="seller-name">Seller Name</span>
@@ -243,16 +232,23 @@
 
 		</div>
 
-		
+
 	</section>
-		<div class="row deliver-btn my-2  ">
-			<button class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Cash on delivery</button>
-			
-		</div>
-		<div class="row deliver-btn my-2  ">
-			
-			<button class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Online Payment</button>
-		</div>
+	<div class="row deliver-btn my-2  ">
+		<button
+			class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Cash
+			on delivery</button>
+
+	</div>
+	<div class="row deliver-btn my-2  ">
+
+		<button
+			class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Online
+			Payment</button>
+	</div>
+
+	
+	
 	
 	<!-- footer -->
 	<%@include file="Footer.jsp"%>

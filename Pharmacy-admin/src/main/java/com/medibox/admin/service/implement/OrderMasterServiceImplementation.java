@@ -3,11 +3,12 @@ package com.medibox.admin.service.implement;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.medibox.admin.model.OrderMaster;
 import com.medibox.admin.reprository.OrderMasterRepository;
 import com.medibox.admin.service.OrderMasterService;
-
+@Service
 public class OrderMasterServiceImplementation implements OrderMasterService {
 	
 	@Autowired
@@ -22,7 +23,8 @@ public class OrderMasterServiceImplementation implements OrderMasterService {
 	@Override
 	public List<OrderMaster> listOfOrderMaster() {
 		
-		return oMasterRepository.findAll();
+		//return oMasterRepository.findAll();
+		return oMasterRepository.LIST();
 	}
 
 	@Override

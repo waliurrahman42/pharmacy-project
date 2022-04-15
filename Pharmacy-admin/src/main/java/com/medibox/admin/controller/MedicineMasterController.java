@@ -185,8 +185,6 @@ public class MedicineMasterController {
 		return "admin/medicineMaster";
 	}
 
-	
-	
 	// adding medicine data in db
 	@PostMapping("/addmedicine")
 	public String addMedicine(MedicineMaster medi, @RequestParam("image1") MultipartFile multipartFile1,
@@ -243,8 +241,7 @@ public class MedicineMasterController {
 		m.addAttribute("deleteMsg", "Deleted Medicine  successfully!!!");
 		return "admin/medicineMaster";
 	}
-	
-	
+
 //	@GetMapping("/medicinepageMaster/{page}")
 //	public String showContacts(@PathVariable("page") Integer page, Model m) {
 //		

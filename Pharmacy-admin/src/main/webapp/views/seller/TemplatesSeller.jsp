@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="ISO-8859-1" />
-    <title>Insert title here</title>
-  </head>
-  <body>
-    	<%@include file="../templates/sellerHeader.jsp" %>
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<%@include file="../templates/sellerHeader.jsp"%>
 
 
 
@@ -19,6 +19,6 @@ pageEncoding="ISO-8859-1"%>
 
 
 
-   	<%@include file="../templates/sellerFooter.jsp" %>
- </body>
+	<%@include file="../templates/sellerFooter.jsp"%>
+</body>
 </html>

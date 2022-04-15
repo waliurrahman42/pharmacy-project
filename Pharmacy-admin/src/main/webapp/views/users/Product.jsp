@@ -4,9 +4,9 @@
 <html>
 
 <head>
-	<meta charset="ISO-8859-1">
-	<title>${medicine.medicineName }&nbsp;${medicine.typeOfSell }</title>
-	<link rel="stylesheet" href="css/productstyle.css" />
+<meta charset="ISO-8859-1">
+<title>${medicine.medicineName }&nbsp;${medicine.typeOfSell }</title>
+<link rel="stylesheet" href="css/productstyle.css" />
 </head>
 
 <body>
@@ -16,15 +16,16 @@
 	<div class="container product-section">
 		<div class="row ml-0     product-details">
 			<div class="col-md-6 ">
-				<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+				<div id="carouselExampleControls" class="carousel slide"
+					data-bs-ride="carousel">
 					<div class="carousel-inner ml-0 mt-4">
 						<div class="carousel-item active ml-0">
-							<img src="/image/imgpng/smp1.png" class="d-block w-100 productpageimage-main"
-								alt="First Slide" />
+							<img src="/image/imgpng/smp1.png"
+								class="d-block w-100 productpageimage-main" alt="First Slide" />
 						</div>
 						<div class="carousel-item ml-0">
-							<img src="image/imgpng/smp1.png" class="d-block w-100 productpageimage-main"
-								alt="Second Slide" />
+							<img src="image/imgpng/smp1.png"
+								class="d-block w-100 productpageimage-main" alt="Second Slide" />
 						</div>
 					</div>
 				</div>
@@ -58,9 +59,10 @@
 					<h3 class="text-success">
 						<i class="fa fa-map-marker" aria-hidden="true"></i>
 					</h3>
-					<input class="pincode ml-2" type="text" placeholder="Enter Delivery Pincode" pattern="^[0-9]{6}$"
-						title="Enter valid PinCode"> <a href="#" class="btn pincode-btn ml-2"><span>Click here to
-							check</span></a>
+					<input class="pincode ml-2" type="text"
+						placeholder="Enter Delivery Pincode" pattern="^[0-9]{6}$"
+						title="Enter valid PinCode"> <a href="#"
+						class="btn pincode-btn ml-2"><span>Click here to check</span></a>
 					<h6>Enter pincode to check the availability of medicine in
 						your area</h6>
 				</div>
@@ -80,8 +82,7 @@
 				<!-- ************ Add to wishlist/cart button ************* -->
 				<div class="row">
 					<a href="Wishlist.html" class="btn wishlist-btn mr-3"><span>+
-							Add to Wish List</span></a>
-					<a href="#" class="btn" id="addToCartbtn"
+							Add to Wish List</span></a> <a href="#" class="btn" id="addToCartbtn"
 						onclick="add_to_cart('${medicine.medicineId }','${medicine.medicineName}','${medicine.typeOfSell }' ,'${medicine.manufacture.manufactureName}', '${medicine.mrp }')">
 						<i class="fa fa-cart-plus"></i>Add to Cart
 					</a>
@@ -113,9 +114,8 @@
 				<div class="product-image">
 					<img src="../image/imgpng/smp1.png" alt="First Similar Product" />
 				</div>
-				<a href="/product?mid=${item.medicineId}">${item.medicineName }</a> <br>
-				<span>${item.typeOfSell}</span><br>
-				<span>${item.manufacture.manufactureName}</span><br>
+				<a href="/product?mid=${item.medicineId}">${item.medicineName }</a>
+				<br> <span>${item.typeOfSell}</span><br> <span>${item.manufacture.manufactureName}</span><br>
 				<strong><span>&#x20b9;${item.mrp}</span></strong><br>
 			</div>
 			<%-- </c:if> --%>

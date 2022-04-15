@@ -15,14 +15,18 @@ public class OrderStatus {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long statusId;
-	
-	@Column(columnDefinition = "integer default 0") 
+	private int statusId;
+
+	@Column(columnDefinition = "integer default 0")
 	private int statusType;
-	
-	@Column(columnDefinition = "integer default 0") 
+
+	@Column(columnDefinition = "integer default 0")
 	private int isCanceled;
-	
+
+	private String statusDescription;
+
+	private int isActive;
+
 	public int getCancel() {
 		return isCanceled;
 	}
@@ -31,18 +35,14 @@ public class OrderStatus {
 		this.isCanceled = isCanceled;
 	}
 
-	private String statusDescription;
-	
-	private int isActive;
-	
-	@OneToMany(mappedBy = "status" ,cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "status", cascade = CascadeType.ALL)
 	private List<OrderMaster> orderMaster;
 
-	public long getStatusId() {
+	public int getStatusId() {
 		return statusId;
 	}
 
-	public void setStatusId(long statusId) {
+	public void setStatusId(int statusId) {
 		this.statusId = statusId;
 	}
 
@@ -77,7 +77,5 @@ public class OrderStatus {
 	public void setOrderMaster(List<OrderMaster> orderMaster) {
 		this.orderMaster = orderMaster;
 	}
-	
-	
-	
+
 }

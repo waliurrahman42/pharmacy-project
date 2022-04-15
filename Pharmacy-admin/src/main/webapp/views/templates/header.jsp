@@ -51,27 +51,31 @@
 						class="nav-link">MedicineMaster</a></li>
 					<li class="nav-item px-2"><a href="/Users" class="nav-link">Users</a>
 					</li>
-					<li class="nav-item px-2"><a href="/OrderPage" class="nav-link">Order</a>
-					</li>
+					<li class="nav-item px-2"><a href="/OrderPage"
+						class="nav-link">Order</a></li>
 				</ul>
 
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item dropdown mr-3">
-							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"> </i> Welcome Wali </a>
-						 	
-							
-						
+					<li class="nav-item dropdown mr-3"><a href="#"
+						class="nav-link dropdown-toggle" data-toggle="dropdown"><i
+							class="fas fa-user"> </i> Welcome Wali </a>
+
+
+
 						<div class="dropdown-menu">
-							<a href="profile.jsp" class="dropdown-item"> <i class="fas fa-user-circle"></i> Profile</a>
-								
-							 <a href="/settings" class="dropdown-item"> <i class="fas fa-cog"></i> Settings </a>
-						</div>	
-					</li>			
-							
-						
-					<li class="nav-item"><a href="/login" class="nav-link"> <i class="fas fa-user-times"></i> Logout</a></li>
-							
-					
+							<a href="profile.jsp" class="dropdown-item"> <i
+								class="fas fa-user-circle"></i> Profile
+							</a> <a href="/settings" class="dropdown-item"> <i
+								class="fas fa-cog"></i> Settings
+							</a>
+						</div></li>
+
+
+					<li class="nav-item"><a href="/login" class="nav-link"> <i
+							class="fas fa-user-times"></i> Logout
+					</a></li>
+
+
 				</ul>
 			</div>
 		</div>

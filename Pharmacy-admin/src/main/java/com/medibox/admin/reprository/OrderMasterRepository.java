@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import com.medibox.admin.model.OrderDetails;
 import com.medibox.admin.model.OrderMaster;
 
-public interface OrderMasterRepository extends JpaRepository<OrderMaster, Long> {
+public interface OrderMasterRepository extends JpaRepository<OrderMaster, Integer> {
 
 	@Query("select u from OrderMaster u where u.orderId=?1")
 	OrderMaster findOrderMasterById(Integer orderId );
@@ -18,4 +18,7 @@ public interface OrderMasterRepository extends JpaRepository<OrderMaster, Long> 
 
 	@Query("select u from OrderMaster u where u.status.statusType=?1")
 	List<OrderMaster> pendingListOfOrderMaster();
+	
+	@Query("select u from OrderMaster u ")
+	List<OrderMaster> LIST();
 }

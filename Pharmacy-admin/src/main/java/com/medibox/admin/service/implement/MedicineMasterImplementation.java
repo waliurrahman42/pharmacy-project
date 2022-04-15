@@ -12,63 +12,61 @@ import com.medibox.admin.reprository.MedicineMasterReprository;
 import com.medibox.admin.service.MedicineMasterService;
 
 @Service
-public class MedicineMasterImplementation implements MedicineMasterService{
+public class MedicineMasterImplementation implements MedicineMasterService {
 
 	@Autowired
 	private MedicineMasterReprository medicineMasterRepro;
 
 	@Override
 	public MedicineMaster saveMedicine(MedicineMaster med) {
-		
+
 		return medicineMasterRepro.save(med);
 	}
 
 	@Override
 	public MedicineMaster findByMedicineId(Integer medicineId) {
-		
-		if(medicineId!=null)
+
+		if (medicineId != null)
 			return medicineMasterRepro.findByMedicineId(medicineId);
 		return null;
 	}
 
 	@Override
 	public void deleteMedicine(MedicineMaster med) {
-		if( med!=null) {
-				medicineMasterRepro.delete(med);
+		if (med != null) {
+			medicineMasterRepro.delete(med);
 		}
 	}
 
 	@Override
 	public void editMedicine(MedicineMaster med) {
-		if( med!=null) {
+		if (med != null) {
 			medicineMasterRepro.save(med);
 		}
 	}
 
 	@Override
 	public List<MedicineMaster> listOfMedicineMaster() {
-		
-		return	medicineMasterRepro.findAll();
+
+		return medicineMasterRepro.findAll();
 	}
 
 	@Override
 	public List<MedicineMaster> listOfMedicineNameId() {
-		
+
 		return medicineMasterRepro.listOfMedicineNameIdTypeOfsellMrpSalt();
 	}
 
 	@Override
 	public List<MedicineMaster> findMedicineByNameLike(String str) {
-		
+
 		return medicineMasterRepro.findByMedicineName(str);
 	}
 
 	@Override
 	public Page<MedicineMaster> listOfMedicineByPage(Pageable pageable) {
-		
+
 		return medicineMasterRepro.findMedicinebyPageable(pageable);
 	}
-	
-	
-	
+
 }
