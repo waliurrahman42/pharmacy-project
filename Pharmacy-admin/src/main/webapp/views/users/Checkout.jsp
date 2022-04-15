@@ -234,13 +234,13 @@
 
 
 	</section>
-	<div class="row deliver-btn my-2  ">
+	<div class="row mx-0 deliver-btn my-2  ">
 		<button
 			class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Cash
 			on delivery</button>
 
 	</div>
-	<div class="row deliver-btn my-2  ">
+	<div class="row  mx-0 deliver-btn my-2  ">
 
 		<button
 			class="btn btn-outline-primary float-right col-2 offset-8 py-2 ">Online

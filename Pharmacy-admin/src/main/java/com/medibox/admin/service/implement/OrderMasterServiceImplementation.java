@@ -57,4 +57,10 @@ public class OrderMasterServiceImplementation implements OrderMasterService {
 		return oMasterRepository.pendingListOfOrderMaster();
 	}
 
+	@Override
+	public int PendingOrderCount() {
+		
+		return oMasterRepository.PendingOrderCount();
+	}
+
 }

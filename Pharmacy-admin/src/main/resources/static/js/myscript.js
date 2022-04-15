@@ -45,7 +45,7 @@ $(document).ready(function () {
 function checkFullName() {
 	var name = document.getElementById("fullName").value;
 	var alphExp = /^[a-zA-Z]+$/;
-	if ((name.length < 4) && (name.match(alphExp))) {
+	if ((name.length < 4) || (!name.match(alphExp))) {
 		document.getElementById("fullname-error").innerText = "Name must have more than 4 chars and not numric value";
 	} else {
 		document.getElementById("fullname-error").innerText = "";

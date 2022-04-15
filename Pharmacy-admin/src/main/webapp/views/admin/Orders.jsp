@@ -42,7 +42,16 @@
 					<td>${order.discount}</td>
 					<td>${order.netAmount}</td>
 					<td>${order.shipingDate }</td>
-					<td>${order.status.statusType}</td>
+					<td>
+						<c:if test="${order.status.isCanceled!=1}">
+							<c:if test="${order.status.statusType==0}">Pending</c:if>
+							<c:if test="${order.status.statusType==1}">Confirmed</c:if>
+							<c:if test="${order.status.statusType==2}">Shipped</c:if>
+							<c:if test="${order.status.statusType==3}"><p class="text-success">Delivered<p></c:if>
+						</c:if>
+						
+						<c:if test="${order.status.isCanceled==1}"><p class="text-danger">Cancelled<p></c:if>
+					</td>
 					<td><a href="/OrderDetails?orderId=${order.orderId}"
 						class="btn btn-secondary"> <i
 							class="fas fa-angle-double-right"></i> Details

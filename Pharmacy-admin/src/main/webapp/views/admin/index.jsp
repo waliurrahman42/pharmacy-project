@@ -116,9 +116,9 @@
 						<div class="card-body">
 							<h3>PendingOrder</h3>
 							<h4 class="display-4">
-								<i class="fas fa-folder"></i> 4
+								<i class="fas fa-folder"></i> ${pendingOrdercount}
 							</h4>
-							<a href="categories.html" class="btn btn-outline-light btn-sm">View</a>
+							<a href="/pendingOrder" class="btn btn-outline-light btn-sm">View</a>
 						</div>
 					</div>
 

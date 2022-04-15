@@ -25,7 +25,7 @@ public interface OrderMasterService {
 	List<OrderMaster> pendingListOfOrderMaster();
 	
 	
-	
+	int  PendingOrderCount();
 	
 	
 	
