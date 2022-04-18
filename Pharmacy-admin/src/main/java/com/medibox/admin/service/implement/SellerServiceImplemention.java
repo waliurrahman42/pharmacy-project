@@ -67,4 +67,10 @@ public class SellerServiceImplemention implements SellerService {
 		return sellerReprository.findBySellerEmail(email);
 	}
 
+	@Override
+	public Seller findSellerByPincode(Integer pincode) {
+		// TODO Auto-generated method stub
+		return sellerReprository.findSellerByPincode(pincode);
+	}
+
 }

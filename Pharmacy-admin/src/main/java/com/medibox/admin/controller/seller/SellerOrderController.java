@@ -42,9 +42,9 @@ public class SellerOrderController {
 		HttpSession session = request.getSession();
 		Seller seller = (Seller) session.getAttribute("logedinSeller");
 		OrderMaster orderdetails = orderMasterService.findByOrderMasterId(orderId);
-		//Handling null value
+		// Handling null value
 		if (orderdetails != null) {
-			//matching seller id with user id  and checking login user
+			// matching seller id with user id and checking login user
 			if ((seller != null) && ((orderdetails.getSeller().getSellerId()) == (seller.getSellerId()))) {
 				m.addAttribute("OrdersDetails", orderdetails);
 				return "seller/OrderDetails";
@@ -54,17 +54,17 @@ public class SellerOrderController {
 		return "redirect:/sellerlogin";
 	}
 
-	
-	//updating orderstatus
+	// updating orderstatus
 	@PostMapping("/sellerOrderUpdateStatus")
-	public String orderStatusUpdate(OrderStatus orderStatus,@RequestParam("orderId")Integer orderId,Model m, HttpServletRequest request) {
-		
+	public String orderStatusUpdate(OrderStatus orderStatus, @RequestParam("orderId") Integer orderId, Model m,
+			HttpServletRequest request) {
+
 		HttpSession session = request.getSession();
 		Seller seller = (Seller) session.getAttribute("logedinSeller");
 		OrderMaster orderdetails = orderMasterService.findByOrderMasterId(orderId);
-		//Handling null value
+		// Handling null value
 		if (orderdetails != null) {
-			//matching seller id with user id  and checking login user
+			// matching seller id with user id and checking login user
 			if ((seller != null) && ((orderdetails.getSeller().getSellerId()) == (seller.getSellerId()))) {
 				orderStatusService.editOrderStatus(orderStatus);
 				m.addAttribute("OrdersDetails", orderMasterService.findByOrderMasterId(orderId));
@@ -74,30 +74,18 @@ public class SellerOrderController {
 		}
 		return "redirect:/sellerlogin";
 	}
-	
-	
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//canceling order
-	
+	// canceling order
+
 	@PostMapping("/sellerorderCancel")
-	public String cancelOrder(OrderStatus orderStatus,@RequestParam("orderId") Integer orderId,Model m, HttpServletRequest request) {
+	public String cancelOrder(OrderStatus orderStatus, @RequestParam("orderId") Integer orderId, Model m,
+			HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Seller seller = (Seller) session.getAttribute("logedinSeller");
 		OrderMaster orderdetails = orderMasterService.findByOrderMasterId(orderId);
-		//Handling null value
+		// Handling null value
 		if (orderdetails != null) {
-			//matching seller id with user id  and checking login user
+			// matching seller id with user id and checking login user
 			if ((seller != null) && ((orderdetails.getSeller().getSellerId()) == (seller.getSellerId()))) {
 				orderStatus.setStatusDescription("Cancelled by seller");
 				orderStatusService.editOrderStatus(orderStatus);
@@ -108,6 +96,16 @@ public class SellerOrderController {
 		}
 		return "redirect:/sellerlogin";
 	}
-	
-	
+
+	@RequestMapping("/sellerpendingOrderDetails")
+	public String cancelOrder(Model m, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Seller seller = (Seller) session.getAttribute("logedinSeller");
+		if (seller != null) {
+			m.addAttribute("totalOrders", orderMasterService.findOrderBySellerPendingOrder(seller.getSellerId()));
+			return "seller/Order";
+		}
+		return "redirect:/sellerlogin";
+	}
+
 }

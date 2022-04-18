@@ -90,4 +90,19 @@ public class SellerMedicneManagerImplemtaion implements SellerMedicneManagerServ
 		return sellerMedicneManagerReporository.findMediMgrIDWithSellerId(mMid, sId);
 	}
 
+
+	@Override
+	public SellerMedicneManager getSellerMedicineData(int sid, int mid) {
+		// TODO Auto-generated method stub
+		return sellerMedicneManagerReporository.getSellerMedicineData(sid, mid);
+	}
+
+
+	@Override
+	public SellerMedicneManager findManagerByMedicineIdAndSellerIdForQuantityUpdate(int mediId, Integer sId) {
+		
+		return sellerMedicneManagerReporository.findMedicineIdWithSellerId(mediId,sId);
+	}
+
+
 }

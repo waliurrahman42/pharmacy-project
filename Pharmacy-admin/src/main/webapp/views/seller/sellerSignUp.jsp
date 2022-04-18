@@ -108,7 +108,9 @@
 								<div class="form-group">
 									<label for="fullname"><b>Full Name</b></label> <input
 										type="text" name="fullName" class="form-control"
-										placeholder="Enter Name" name="fullname" id="email" required />
+										placeholder="Enter Name" name="fullname" id="fullName"
+										onblur="checkFullName()" required /> <span
+										id="fullname-error" class="text-danger"></span>
 								</div>
 
 								<div class="form-group">
@@ -120,14 +122,18 @@
 								<div class="form-group">
 									<label for="psw"><b>Password</b></label> <input type="password"
 										name="password" class="form-control"
-										placeholder="Enter Password" name="psw" id="psw" required />
+										placeholder="Enter Password" name="psw" id="password"
+										onblur="checkPasswordMatch()" required /> <span
+										id="password-error" class="text-danger"></span>
 								</div>
 
 								<div class="form-group">
 									<label for="psw-reEnter"><b>ReEnter Password</b></label> <input
 										type="password" name="repassword" class="form-control"
 										placeholder="ReEnter Password" name="psw-reEnter"
-										id="psw-reEnter" required />
+										id="RePassword" onblur="checkPasswordMatch()" required /> <span
+										id="password-error" class="text-danger"></span>
+
 								</div>
 
 								<div class="form-group">
@@ -147,7 +153,10 @@
 								<div class="form-group">
 									<label for="ShopContactNo"><b>Shop Contact No</b></label> <input
 										type="text" class="form-control" placeholder="ShopContactNo "
-										name="ShopContactNo" id="ShopContactNo" required />
+										name="ShopContactNo" id="contactNumber"
+										onblur="checkContactNo()" required /> <span
+										id="contact-error" class="text-danger"></span>
+
 								</div>
 
 								<div class="form-group">
@@ -162,13 +171,13 @@
 										type="text" name="shopPincode" class="form-control"
 										placeholder="Shop Pin code" id="ShopPincode" name="pincode"
 										minlength="6" maxlength="6" />
-									
+
 								</div>
 
 								<div class="form-group">
-									<label for="myfile"><b>Select a file:</b></label> <input type="file"
-										name="myfilesdoc" accept="image/*,.pdf" class="form-control"
-										id="myfile" />
+									<label for="myfile"><b>Select a file:</b></label> <input
+										type="file" name="myfilesdoc" accept="image/*,.pdf"
+										class="form-control" id="myfile" />
 								</div>
 
 								<input type="submit" value="Sign Up"

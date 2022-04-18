@@ -53,6 +53,7 @@ public class Seller {
 	private List<SellerMedicneManager> sellerMedicneManager;
 
 	@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<OrderMaster> orderMaster;
 
 	public int getSellerId() {

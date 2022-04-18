@@ -20,5 +20,8 @@ public interface SellerMedicneManagerService {
 	List<SellerMedicneManager> findByMedicneId(Integer sellerId);
 	
 	SellerMedicneManager findMediMgrIDWithSellerId(Integer mMid,Integer sId );
+	
+	SellerMedicneManager getSellerMedicineData(int sid, int mid);
 
+	SellerMedicneManager findManagerByMedicineIdAndSellerIdForQuantityUpdate(int parseInt, Integer sId);
 }

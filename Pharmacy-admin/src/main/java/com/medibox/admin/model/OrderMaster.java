@@ -25,7 +25,7 @@ public class OrderMaster {
 	private float orderAmount;
 
 	@Column(nullable = false)
-	private int discount;
+	private float discount;
 
 	@Column(nullable = false)
 	private float netAmount;
@@ -90,11 +90,11 @@ public class OrderMaster {
 		this.orderAmount = orderAmount;
 	}
 
-	public int getDiscount() {
+	public float getDiscount() {
 		return discount;
 	}
 
-	public void setDiscount(int discount) {
+	public void setDiscount(float discount) {
 		this.discount = discount;
 	}
 

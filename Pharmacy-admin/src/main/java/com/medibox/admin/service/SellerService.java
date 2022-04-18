@@ -27,6 +27,8 @@ public interface SellerService {
 	int countSeller();
 	
 	List<Seller> pendingListOfSeller();
+
+	Seller findSellerByPincode(Integer pincode);
 	
 	
 }

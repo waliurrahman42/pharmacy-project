@@ -160,7 +160,7 @@
 						aria-current="page" href="/home"> <i class="fa fa-home"></i>Home
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="Adeel/Product.html"><i class="fa fa-store"></i>Shop</a></li>
+						href="/ProductListPage"><i class="fa fa-store"></i>Shop</a></li>
 					<li class="nav-item"><a href="/aboutus" class="nav-link"
 						role="button">About Us</a></li>
 					<li class="nav-item"><a href="/contactus" class="nav-link"

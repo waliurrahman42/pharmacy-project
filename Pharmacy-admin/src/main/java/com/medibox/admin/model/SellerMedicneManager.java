@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class SellerMedicneManager {
 
@@ -18,12 +20,14 @@ public class SellerMedicneManager {
 	private int qunatity;
 
 	@Column(nullable = false)
-	private int sellerDiscount;
+	private float sellerDiscount;
 
 	@ManyToOne
+	@JsonIgnore
 	private Seller seller;
 
 	@ManyToOne
+	@JsonIgnore
 	private MedicineMaster medicineMaster;
 
 	public int getSellerMediManagerId() {
@@ -42,11 +46,11 @@ public class SellerMedicneManager {
 		this.qunatity = qunatity;
 	}
 
-	public int getSellerDiscount() {
+	public float getSellerDiscount() {
 		return sellerDiscount;
 	}
 
-	public void setSellerDiscount(int sellerDiscount) {
+	public void setSellerDiscount(float sellerDiscount) {
 		this.sellerDiscount = sellerDiscount;
 	}
 

@@ -28,28 +28,38 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String index() {
-		System.out.println("Index page called");
+		
 		return "users/index";
 	}
 
 	@RequestMapping("/home")
 	public String home() {
-		System.out.println("Index page called");
+		
 		return "users/index";
 	}
 
 	@RequestMapping("/aboutus")
 	public String aboutUs() {
-		System.out.println("AboutUs page called");
+	
 		return "users/AboutUs";
 	}
 
 	@RequestMapping("/contactus")
 	public String contactUs() {
-		System.out.println("ContactUs page called");
+		
 		return "users/ContactUs";
 	}
 
+	
+	@RequestMapping("/ProductListPage")
+	public String ProductListPage() {
+		
+		return "users/ProductList";
+	}
+	
+	
+	
+	
 	@GetMapping("/search")
 	public String processQuery(@RequestParam("query") String query, Model model) {
 		System.out.println("process query called");

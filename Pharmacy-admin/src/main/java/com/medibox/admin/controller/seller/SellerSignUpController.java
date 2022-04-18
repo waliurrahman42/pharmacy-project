@@ -17,6 +17,7 @@ import org.springframework.web.multipart.*;
 
 import com.medibox.admin.FileUploadUtils;
 import com.medibox.admin.model.Seller;
+import com.medibox.admin.service.OrderMasterService;
 import com.medibox.admin.service.SellerService;
 import com.medibox.admin.service.implement.SellerServiceImplemention;
 
@@ -25,6 +26,9 @@ public class SellerSignUpController {
 
 	@Autowired
 	private SellerService sellerService;
+	
+	@Autowired
+	private OrderMasterService orderMasterService;
 
 	@RequestMapping("/sellerSignUp")
 	public String RegistrationForm() {
@@ -85,6 +89,8 @@ public class SellerSignUpController {
 			} else {
 				HttpSession session = request.getSession();
 				session.setAttribute("logedinSeller", seller);
+				m.addAttribute("pendingOrdercount",orderMasterService.PendingOrderOfSellerCount(seller.getSellerId()));
+				m.addAttribute("pendingOrderList",orderMasterService.findOrderBySellerPendingOrder(seller.getSellerId()));
 				return "seller/sellerIndex";
 			}
 		}

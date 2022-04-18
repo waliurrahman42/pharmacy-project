@@ -24,7 +24,7 @@ public class UserAddress {
 	@ManyToOne
 	private User user;
 
-	@OneToMany(mappedBy = "userAddress", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "userAddress")
 	private List<OrderMaster> orderMasters;
 
 	@Column(nullable = false)

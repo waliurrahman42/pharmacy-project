@@ -105,7 +105,7 @@
 									</td>
 									<td>${list.shipingDate}</td>
 									<td>pending</td>
-									<td><a href="/sellerOrderDetails" class="btn btn-secondary">
+									<td><a href="/sellerpendingOrderDetails" class="btn btn-secondary">
 											<i class="fas fa-angle-double-right"></i> Details
 									</a></td>
 								</tr>
@@ -121,7 +121,7 @@
 							<h4 class="display-4">
 								<i class="fas fa-folder"></i>${pendingOrdercount}
 							</h4>
-							<a href="./orderpage.html" class="btn btn-outline-light btn-sm">View</a>
+							<a href="/sellerpendingOrderDetails" class="btn btn-outline-light btn-sm">View</a>
 						</div>
 					</div>
 				</div>
