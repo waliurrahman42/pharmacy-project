@@ -924,5 +924,21 @@ footer {
 
 }
 
+#Canceled-bg-text
+{
+    color:red;
+    font-size:30px;
+    transform:rotate(300deg);
+    -webkit-transform:rotate(322deg);
+}
+
+#delivered-bg-text
+{
+    color:rgb(0, 255, 0);
+    font-size:30px;
+    transform:rotate(300deg);
+    -webkit-transform:rotate(322deg);
+}
+
 
 /* =====================orders page================================ */

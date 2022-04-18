@@ -43,7 +43,7 @@
 				<ul class="navbar-nav">
 					<li class="nav-item px-2"><a href="/homeseller"
 						class="nav-link active">Dashboard</a></li>
-					<li class="nav-item px-2"><a href="/orderpage"
+					<li class="nav-item px-2"><a href="/sellerOrderPage"
 						class="nav-link">Order</a></li>
 					<li class="nav-item px-2"><a href="/sellerMedicineManager"
 						class="nav-link">Medicine Manager</a></li>
@@ -56,9 +56,11 @@
 							<i class="fas fa-user"></i> Welcome ${logedinSeller.fullName}
 					</a>
 						<div class="dropdown-menu">
-							<a href="profile.html" class="dropdown-item"> <i
+							<a href="/sellerProfile" class="dropdown-item"> <i
 								class="fas fa-user-circle"></i> Profile
-							</a> <a href="settings.html" class="dropdown-item"> <i
+							</a> 
+							<a href="/sellerSettings" class="dropdown-item"> 
+							<i
 								class="fas fa-cog"></i> Settings
 							</a>
 						</div></li>

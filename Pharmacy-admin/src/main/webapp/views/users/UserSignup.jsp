@@ -31,7 +31,17 @@
 
 <body class="">
 	<!-- ================================================================================================================= -->
-
+	<c:if test="${userexist}">
+		<div
+			class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show"
+			role="alert">
+			<strong>Invalid!</strong> Email or Mobile Number already exist
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</c:if>
 	<section id="home-section">
 		<div class="dark-overlay">
 			<div class="home-inner container">
@@ -39,7 +49,7 @@
 					<div class="col-lg-4 d-none d-lg-block">
 						<div class="d-flex">
 							<div class="p-4 align-self-start">
-								<a href="/"><img src="./image/logo1.png" alt="@logo"
+								<a href="/"><img src="./image/logo.png" alt="@logo"
 									height="auto" width="200px" class="logosignup" /></a>
 							</div>
 						</div>
@@ -66,17 +76,7 @@
 						</div>
 					</div>
 
-					<c:if test="${userexist}">
-						<div
-							class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show"
-							role="alert">
-							<strong>Invalid!</strong> Email or Mobile Number already exist
-							<button type="button" class="close" data-dismiss="alert"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</c:if>
+
 
 
 
@@ -85,7 +85,7 @@
 							<div class="card-body">
 								<h3>Sign Up Today</h3>
 								<p>Please fill out this form to register</p>
-								<form method="post" action="process_userSignup">
+								<form method="post" action="process_userSignup" class="needs-validation">
 									<div class="form-group">
 										<input type="text" class="form-control form-control-lg"
 											id="fullName" name="fullName" placeholder="Full Name"

@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1" />
-<title>Seller-medi-list</title>
-
+<meta charset="ISO-8859-1">
+<title>Seller-settings</title>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,50 +27,56 @@
 
 
 
+
 </head>
 <body>
-	<%@include file="../templates/sellerHeader.jsp"%>
-
-
-
-	<div id="medicine-details">
-		<table class="table">
-			<thead class="thead-light">
-				<tr>
-					<th scope="col">Medicine Name</th>
-					<th scope="col">Salt</th>
-					<th scope="col">type Of Sell</th>
-					<th scope="col">Manufacture</th>
-					<th scope="col">MRP</th>
-					<th scope="col">MediBox Selling Price</th>
-					<th scope="col">Manage Your stock</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="listM" items="${listOfMedicine}">
-					<tr>
-						<th scope="row">${listM.medicineName}</th>
-						<td>${listM.salt}</td>
-						<td>${listM.typeOfSell}</td>
-						<td>${listM.manufacture.manufactureName}</td>
-						<td>${listM.mrp}</td>
-						<td>${(listM.mrp)-10}</td>
-						<td><a class="btn btn-success "
-							href="/AddinurStock?mid=${listM.medicineId}"><i
-								class="fas fa-plus"></i>Add Your stock</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
 
 
 
 
+<%@include file="../templates/sellerHeader.jsp"%>
+
+<section id="settings">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="card">
+						<div class="card-header">
+							<h4>Edit Settings</h4>
+						</div>
+						<div class="card-body">
+							<form action="" mathod="">
+								<fieldset class="form-group">
+									<legend>Accept taking Order</legend>
+									<div class="form-check">
+										<label class="form-check-label"> <input type="radio"
+											class="form-check-input" name="isOrdertaking" value="Yes" checked> Yes
+										</label>
+									</div>
+									<div class="form-check">
+										<label class="form-check-label"> <input type="radio"
+											class="form-check-input" name="isOrdertaking" value="No"> No
+										</label>
+									</div>
+								</fieldset>
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 
-	<%@include file="../templates/sellerFooter.jsp"%>
+
+
+<%@include file="../templates/sellerFooter.jsp"%>
+
+
+
+
+
 </body>
 </html>

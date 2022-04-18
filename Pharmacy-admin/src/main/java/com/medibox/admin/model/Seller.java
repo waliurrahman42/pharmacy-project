@@ -1,7 +1,6 @@
 package com.medibox.admin.model;
 
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Seller {
@@ -20,7 +21,7 @@ public class Seller {
 	@Column(nullable = false)
 	private String fullName;
 
-	@Column(nullable = false)
+	@Column(nullable = false,unique = true)
 	private String emailId;
 
 	@Column(nullable = false)
@@ -41,13 +42,14 @@ public class Seller {
 	@Column(nullable = false, length = 500)
 	private String shopAddress;
 
-	@Column(nullable = false)
+	@Column(nullable = false,unique = true)
 	private int shopPincode;
 
 	// @Column(nullable = false)
 	private String documentUrl;
 
 	@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<SellerMedicneManager> sellerMedicneManager;
 
 	@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
@@ -156,5 +158,10 @@ public class Seller {
 	public void setOrderMaster(List<OrderMaster> orderMaster) {
 		this.orderMaster = orderMaster;
 	}
+
+	
+	
+	
+	
 
 }

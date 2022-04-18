@@ -55,6 +55,7 @@ public class adminOrderController {
 	@PostMapping("/orderCancel")
 	public String cancelOrder(OrderStatus orderStatus,@RequestParam("orderId") Integer orderId,Model m) {
 		orderStatusService.editOrderStatus(orderStatus);
+		orderStatus.setStatusDescription("Cancelled by admin");
 		m.addAttribute("OrdersDetails", orderMasterService.findByOrderMasterId(orderId));
 		return "admin/OrderDetails";
 	}

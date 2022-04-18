@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
-<%@page isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<meta charset="ISO-8859-1" />
+<title>seller-order</title>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Admin-Userdetails</title>
+<title>Seller-SignUp</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
@@ -25,76 +24,16 @@
 	crossorigin="anonymous" />
 <link rel="stylesheet" href="/css/mystyleadmin.css" />
 <script src="/js/myjScriptadmin.js"></script>
+
+
 </head>
-
 <body>
-
-	<%@include file="../templates/header.jsp"%>
-
-
-	
-	<!--++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<%@include file="../templates/sellerHeader.jsp"%>
 
 
-	<!-- Profile Page -->
-	<div class="container mt-3">
-		<div class="row gutters">
-			<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-				<div class="card h-100">
-					<div class="card-body">
-						<div class="account-settings">
-							<div class="user-profile">
-								<div class="user-avatar">
-									<img src="https://bootdey.com/img/Content/avatar/avatar7.png"
-										alt="@profiepic">
-								</div>
-								<h5 class="user-name">${currentuser.fullName}</h5>
-								<h6 class="user-email">${currentuser.emailId}</h6>
-								<h6 class="user-contactno">${currentuser.contactNumber}</h6>
-							</div>
-							<hr>
-							<%-- <div class="manage-address">
-								<button type="button" data-toggle="collapse"
-									data-target="#address-section">Address</button>
-							</div>
-							<br>
-							<div class="oderdetails">
-								<a class="btn btn-secondary" href="/adminUserOdderDetails?uid=${currentuser.userId}"><i class="fas fa-angle-double-right"></i>Order Details</a>					
-							</div> --%>
-						</div>
-					</div>
-				</div>
-			</div>
 
 
-			<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-				<div class=" row card h-80">
-
-					<br>
-
-					<c:forEach var="address" items="${currentuser.userAddresses }">
-						<div class="user-address-section mt-3 ml-3 mb-3 mr-3 p-3">
-
-							<div class="left">
-								<span class="username">${address.name}</span> &nbsp; <span
-									class="usercontactno">${address.mobileNumber}</span> <br>
-								<span class="useraddress">${address.localityAreaStreet}</span> <br>
-								<br> <span class="userlandmark">${address.landmark}</span>
-								<br> <span class="usercity">${address.city}</span>, <span
-									class="userstate">${address.state}</span> - <span
-									class="userpincode">${address.pincode}</span> &nbsp;
-							</div>
-
-
-						</div>
-					</c:forEach>
-				</div>
-			</div>
-		</div>
-	</div>
-	
-
-		<table class="table">
+	<table class="table">
 		<thead class="thead-light">
 			<tr>
 				<th scope="col">OrderId</th>
@@ -137,10 +76,15 @@
 		</tbody>
 	</table>
 
-	<%@include file="../templates/footer.jsp"%>
 
 
 
 
+
+
+
+
+
+	<%@include file="../templates/sellerFooter.jsp"%>
 </body>
 </html>

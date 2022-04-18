@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@page isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+<meta charset="ISO-8859-1" />
+<title>Seller- profile</title>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Seller-details</title>
+<title>Seller-SignUp</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
@@ -24,10 +24,16 @@
 	crossorigin="anonymous" />
 <link rel="stylesheet" href="/css/mystyleadmin.css" />
 <script src="/js/myjScriptadmin.js"></script>
-</head>
 
+
+
+
+
+</head>
 <body>
-	<%@include file="../templates/header.jsp"%>
+	<%@include file="../templates/sellerHeader.jsp"%>
+
+
 
 	<div class="container mt-3">
 		<div class="row gutters">
@@ -38,8 +44,7 @@
 							class="rounded mx-auto d-block" height="200px" width="auto" />
 					</div>
 
-					<form method="post" action="/sellerStatusupdate"
-						enctype="multipart/form-data">
+					<form >
 						<div class="card-body" id="add">
 							<div class="row gutters">
 								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -97,14 +102,7 @@
 									</div>
 								</div>
 
-								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-									<div class="form-group">
-										<label for="shopeDocumentUrl">Document Url</label> <input
-											type="text" name="documentUrl"
-											value="${currentuser.documentUrl}" class="form-control"
-											id="shopeDocumentUrl" placeholder="Document Url" readonly />
-									</div>
-								</div>
+								
 
 								<div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
 									<div class="form-group">
@@ -112,7 +110,7 @@
 										<textarea class="form-control" name="shopAddress"
 											 id="ShopAddress" rows="3"
 											cols="10" readonly>${currentuser.shopAddress}
-                      			</textarea>
+                     				 	</textarea>
 									</div>
 								</div>
 
@@ -124,25 +122,7 @@
 											id="ShopAddress" placeholder="Pincode" readonly />
 									</div>
 								</div>
-
-								<div class="form-group">
-									<label for="status">status</label> <select class="form-control"
-										name="status" id="status">
-										<option value="${currentuser.status}">
-											<c:if test="${currentuser.status == 0}">On Hold</c:if>
-											<c:if test="${currentuser.status == 1}"> Active</c:if>
-										</option>
-										<option value="1">Active</option>
-										<option value="0">On Hold</option>
-									</select>
-								</div>
-
-								<div class="col-2 offset-8">
-									<div class="form-group">
-										<input type="submit" class="btn btn-success"
-											value="Update Status" />
-									</div>
-								</div>
+	
 							</div>
 						</div>
 					</form>
@@ -150,47 +130,14 @@
 			</div>
 		</div>
 	</div>
+	
 
-	<br />
 
-	<!-- list of medicine available at that Seller -->
 
-	<button class="btn btn-success btn-block" data-toggle="collapse"
-		data-target="#medicine-details">Show Medicine List</button>
 
-	<div class="collapse" id="medicine-details">
-		<table class="table">
-			<thead class="thead-light">
-				<tr>
-					<th scope="col">Medicine Name</th>
-					<th scope="col">Salt</th>
-					<th scope="col">type Of Sell</th>
-					<th scope="col">Ur extra Discount</th>
-					<th scope="col">MRP</th>
-					<th scope="col">Quantity</th>
-					<th scope="col">MediBox Selling Price</th>
-					<th scope="col">Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach var="listM" items="${currentuser.sellerMedicneManager}">
-					<tr>
-						<th scope="row">${listM.medicineMaster.medicineName}</th>
-						<td>${listM.medicineMaster.salt}</td>
-						<td>${listM.medicineMaster.typeOfSell}</td>
-						<td>${listM.sellerDiscount}</td>
-						<td>${listM.medicineMaster.mrp}</td>
-						<td>${listM.qunatity}</td>
-						<td>${(listM.medicineMaster.mrp) - 10 - (listM.sellerDiscount) }
-						</td>
 
-						<td><a href="#">Edit</a></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
-	</div>
 
-	<%@include file="../templates/footer.jsp"%>
+
+	<%@include file="../templates/sellerFooter.jsp"%>
 </body>
 </html>

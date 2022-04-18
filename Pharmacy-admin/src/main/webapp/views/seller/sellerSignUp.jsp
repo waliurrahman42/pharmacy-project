@@ -92,8 +92,8 @@
 
 	<!-- SignUpSeller -->
 	<section id="SignUpSeller">
-		<div class="container">
-			<div class="row">
+		<div class="container-fulid">
+			<div class="row text-center">
 				<div class="col-md-6 mx-auto">
 					<div class="card">
 						<div class="card-header">
@@ -161,18 +161,18 @@
 									<label for="ShopPincode"><b>Enter a ShopPincode:</b></label> <input
 										type="text" name="shopPincode" class="form-control"
 										placeholder="Shop Pin code" id="ShopPincode" name="pincode"
-										minlength="6" maxlength="6" /><br />
-									<br />
+										minlength="6" maxlength="6" />
+									
 								</div>
 
 								<div class="form-group">
-									<label for="myfile">Select a file:</label> <input type="file"
+									<label for="myfile"><b>Select a file:</b></label> <input type="file"
 										name="myfilesdoc" accept="image/*,.pdf" class="form-control"
 										id="myfile" />
 								</div>
 
 								<input type="submit" value="Sign Up"
-									class="btn btn-outline-primary btn-block" />
+									class="btn btn-primary btn-block" />
 
 								<p class="signinlink">
 									I already have an account <a href="/sellerlogin">Sign In</a>

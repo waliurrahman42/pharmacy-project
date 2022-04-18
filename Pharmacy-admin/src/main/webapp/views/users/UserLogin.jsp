@@ -31,6 +31,47 @@
 <body class="">
 	<!-- ================================================================================================================= -->
 
+
+
+	<%
+			String username="",password="";
+			Cookie[] cookies = request.getCookies(); 
+	
+			for (int i = 0; i < cookies.length; i++) {
+				Cookie c = cookies[i];
+				if (c.getName().equals("username")) {
+					username = c.getValue();
+				}
+				if (c.getName().equals("password")) {
+					password = c.getValue();
+				}
+			}
+	%>
+
+
+
+
+
+
+
+	<c:if test="${invaliduser}">
+		<div
+			class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show"
+			role="alert">
+			<strong>Invalid!!!!!!!</strong> Username and Password
+			<button type="button" class="close" data-dismiss="alert"
+				aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</c:if>
+
+
+
+
+
+
+
 	<section id="home-section">
 		<div class="dark-overlay">
 			<div class="home-inner container">
@@ -38,7 +79,7 @@
 					<div class="col-lg-4 d-none d-lg-block">
 						<div class="d-flex">
 							<div class="p-4 align-self-start">
-								<a href="/"> <img src="./image/logo1.png" alt="@logo"
+								<a href="/"> <img src="./image/logo.png" alt="@logo"
 									height="auto" width="200px" class="logosignup" /></a>
 							</div>
 						</div>
@@ -66,18 +107,6 @@
 					</div>
 
 
-					<c:if test="${invaliduser}">
-						<div
-							class="w-50  m-auto alert alert-danger text-center alert-dismissible fade show"
-							role="alert">
-							<strong>Invalid!!!!!!!</strong> Username and Password
-							<button type="button" class="close" data-dismiss="alert"
-								aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-					</c:if>
-
 
 
 
@@ -90,20 +119,24 @@
 
 									<div class="form-group">
 										<input type="text" class="form-control form-control-lg"
-											name="uname" placeholder="Mobile/Email" />
+											name="uname" placeholder="Mobile/Email" value="<%=username %>" />
 									</div>
 
 
 									<div class="form-group">
 										<input type="password" class="form-control form-control-lg"
-											name="upass" placeholder="password" />
+											name="upass" placeholder="password" value="<%=password%>"  />
 									</div>
-
+									
+									<div >
+										<input type="checkbox"   name="remember"> Remember me<br>
+									</div>
+	
 									<input type="submit" value="Sign IN "
 										class="btn btn-outline-light btn-block" />
 
 									<p class="signuplink">
-										Dont have an account <a href="/UserSignup">Sign Up</a>
+										Don't have an account <a href="/UserSignup">Sign Up</a>
 									</p>
 								</form>
 							</div>

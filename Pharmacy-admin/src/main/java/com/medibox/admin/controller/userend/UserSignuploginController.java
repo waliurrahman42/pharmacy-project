@@ -1,6 +1,8 @@
 package com.medibox.admin.controller.userend;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,14 +54,25 @@ public class UserSignuploginController {
 
 	@PostMapping("/userlogin-process")
 	public String userLogin(@RequestParam("uname") String uname, @RequestParam("upass") String upass,
-			HttpServletRequest request, Model m) {
+			@RequestParam(value = "remember",required = false) String remember,HttpServletRequest request, Model m,HttpServletResponse response) {
 		System.out.println("UserLogin page called");
 		User user = userService.findByUserEmailAndPassword(uname, upass);
-
+		
+		
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("logedInUser", user);
-
+			if (remember != null) {
+				Cookie ncookie = new Cookie("username",uname );
+				Cookie pcookie = new Cookie("password",upass);
+				
+				ncookie.setMaxAge(180);
+				pcookie.setMaxAge(180);
+				
+				response.addCookie(ncookie);
+				response.addCookie(pcookie);
+			}
+			
 			return "users/index";
 		}
 		m.addAttribute("invaliduser", true);

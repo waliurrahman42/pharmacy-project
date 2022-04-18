@@ -14,6 +14,12 @@ public interface OrderMasterService {
 	
 	OrderMaster findByOrderMasterId(Integer OrderMasterId);
 	
+	
+	List<OrderMaster> findOrderBySellerId(Integer sellerId);
+	
+	List<OrderMaster> findOrderByUserId(Integer sellerId);
+	
+	
 	void deleteOrderMaster(OrderMaster OrderMaster);
 
 	void editOrderMaster(OrderMaster OrderMaster);
@@ -24,6 +30,9 @@ public interface OrderMasterService {
 	
 	List<OrderMaster> pendingListOfOrderMaster();
 	
+	List<OrderMaster> findOrderBySellerPendingOrder(Integer sellerId);
+	
+	int  PendingOrderOfSellerCount(Integer sellerId);
 	
 	int  PendingOrderCount();
 	

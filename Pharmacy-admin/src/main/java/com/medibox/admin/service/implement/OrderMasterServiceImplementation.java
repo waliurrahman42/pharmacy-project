@@ -63,4 +63,26 @@ public class OrderMasterServiceImplementation implements OrderMasterService {
 		return oMasterRepository.PendingOrderCount();
 	}
 
+	@Override
+	public List<OrderMaster> findOrderBySellerId(Integer sellerId) {
+		return oMasterRepository.findOrderBysellerId(sellerId);
+	}
+
+	@Override
+	public List<OrderMaster> findOrderByUserId(Integer userId) {
+		return oMasterRepository.findOrderByUserId(userId);
+	}
+
+	@Override
+	public List<OrderMaster> findOrderBySellerPendingOrder(Integer sellerId) {
+		// TODO Auto-generated method stub
+		return oMasterRepository.findOrderBySellerPendingOrder(sellerId);
+	}
+
+	@Override
+	public int PendingOrderOfSellerCount(Integer sellerId) {
+		// TODO Auto-generated method stub
+		return oMasterRepository.PendingOrdersellerCount(sellerId);
+	}
+
 }

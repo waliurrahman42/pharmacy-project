@@ -64,13 +64,15 @@
 
 			</button>
 			<ul class="dropdown-menu">
-				<li><c:if test="${logedInUser==null}">
-						<a class="dropdown-item" href="/userloginpage">LOGIN</a>
-					</c:if></li>
+
 				<li><c:if test="${logedInUser!=null}">
 						<a class="dropdown-item" href="/profile">Profile</a>
 					</c:if></li>
-
+				<li><c:if test="${logedInUser==null}">
+						<a class="dropdown-item" href="/userloginpage">LOGIN</a>
+					</c:if> <c:if test="${logedInUser!=null}">
+						<a class="dropdown-item" href="/userOrderPage">Orders</a>
+					</c:if></li>
 
 				<li>
 					<hr class="dropdown-divider" />
@@ -173,11 +175,13 @@
 
 						</button>
 						<ul class="dropdown-menu">
-							<li><c:if test="${logedInUser==null}">
-									<a class="dropdown-item" href="/userloginpage">LOGIN</a>
-								</c:if></li>
 							<li><c:if test="${logedInUser!=null}">
 									<a class="dropdown-item" href="/profile">Profile</a>
+								</c:if></li>
+							<li><c:if test="${logedInUser==null}">
+									<a class="dropdown-item" href="/userloginpage">LOGIN</a>
+								</c:if> <c:if test="${logedInUser!=null}">
+									<a class="dropdown-item" href="/userOrderPage">Orders</a>
 								</c:if></li>
 
 

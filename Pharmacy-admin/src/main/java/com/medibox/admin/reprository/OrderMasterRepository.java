@@ -24,4 +24,18 @@ public interface OrderMasterRepository extends JpaRepository<OrderMaster, Intege
 	
 	@Query("select count(u) from OrderMaster u where  u.status.statusType=0")
 	int PendingOrderCount();
+	
+	@Query("select u from OrderMaster u where u.seller.sellerId=?1")
+	List<OrderMaster> findOrderBysellerId(Integer sellerId);
+	
+	@Query("select u from OrderMaster u where u.user.userId=?1")
+	List<OrderMaster> findOrderByUserId(Integer userId);
+	
+	@Query("select u from OrderMaster u where u.seller.sellerId=?1 and u.status.statusType=0")
+	List<OrderMaster> findOrderBySellerPendingOrder(Integer sellerId);
+	
+	
+	@Query("select count(u) from OrderMaster u where u.seller.sellerId=?1 and u.status.statusType=0")
+	int PendingOrdersellerCount(Integer sellerId);
+	
 }

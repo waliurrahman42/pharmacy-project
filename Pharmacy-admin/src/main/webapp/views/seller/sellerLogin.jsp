@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Seller-SignUp</title>
+<title>Seller-Login</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" />
@@ -115,6 +115,9 @@
 								</div>
 								<input type="submit" value="Login"
 									class="btn btn-primary btn-block" />
+								<p class="signuplink">
+									Don't have an account <a href="/sellerSignUp">Sign up</a>
+								</p>
 							</form>
 						</div>
 					</div>
