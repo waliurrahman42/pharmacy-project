@@ -1,0 +1,15 @@
+#myoderdetails{
+    border: 1px solid black;
+     margin-top: auto; margin-bottom: auto; 
+     margin-top: 74px;
+      background-color: #fff;
+}
+
+#order-details{
+    margin: 1% 1% 0 1%;
+    padding: 0;
+    border-top: 2px solid grey;
+    margin-left: -14px;
+    background-color: #fff;
+    
+}

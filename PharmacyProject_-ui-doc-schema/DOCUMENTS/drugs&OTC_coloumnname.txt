@@ -1,0 +1,40 @@
+DRUGS
+
+Product Id(PK)
+Medicine Name  
+Prescription
+Type of Sell
+MId
+Salt
+MRP
+Uses
+Alternate Medicines
+Side Effects
+How to Use
+Chemical Class
+Habit Forming
+Therapeutic Class
+Action Class
+
+
+
+OTC
+
+Name
+Type of Sell
+Category
+MRP
+Manufacturer
+
+Manufacturer
+Mid
+MName
+MDescription
+isActive
+
+Therapeutic Class
+TId
+TName
+Description
+
+
